@@ -11,6 +11,7 @@ url: "http://jabalazs.github.io/" # the base hostname & protocol for your site
 twitter_username:
 github_username:  jabalazs
 paginate: 5
+future: true
 
 # Build settings
 markdown: kramdown
