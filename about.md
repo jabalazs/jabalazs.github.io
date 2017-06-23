@@ -4,7 +4,7 @@ title: About
 permalink: /about/
 ---
 
-I'm currently a research student at the University of Tokyo. <a href="http://weblab.t.u-tokyo.ac.jp/about_en/">This</a>
+I'm currently a research student at the University of Tokyo. <a href="http://weblab.t.u-tokyo.ac.jp/en/" target="_blank">This</a>
 is my lab.
 
 My past research involved creating an Opinion Mining
@@ -18,5 +18,3 @@ platform for analyzing tweets related to a Chilean retail company.
 <br>
 Jorge-Andrés Balazs and Juan Velásquez, Information Fusion, vol. 27, pp. 95–110, January 2016.
 </div>
-
-
