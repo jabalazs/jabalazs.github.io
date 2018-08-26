@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Blog
+permalink: /blog/
 ---
 
 <div class="home">
@@ -17,7 +18,7 @@ title: Blog
   {% endfor %}
 
     <!-- Pagination links -->
-    <!-- <div class="pagination">
+    <div class="pagination">
         {% if paginator.previous_page %}
             <a href="{{ paginator.previous_page_path }}" class="previous">Previous</a>
         {% else %}
@@ -28,5 +29,5 @@ title: Blog
         {% else %}
             <span class="inactive next">Next</span>
         {% endif %}
-    </div> -->
+    </div>
 </div>
