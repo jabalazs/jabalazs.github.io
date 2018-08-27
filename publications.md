@@ -4,6 +4,8 @@ title: Publications
 ---
 
 # Publications
+__Jorge A. Balazs__, Edison Marrese-Taylor, and Yutaka Matsuo, __IIIDYT at IEST 2018: Implicit Emotion Classification With Deep Contextualized Word Representations__, in Proceedings of the 9th Workshop on Computational Approaches to Subjectivity, Sentiment and Social Media Analysis (WASSA) collocated with EMNLP, Brussels, Belgium, Association for Computational Linguistics (ACL), November 2018. [<a href="assets/papers/iest_2018.pdf">pdf</a>] [<a href="assets/papers/iest_2018.bib">bibtex</a>]
+
 __Jorge A. Balazs__, Edison Marrese-Taylor, Pablo Loyola, and Yutaka Matsuo, [__Refining Raw Sentence Representations for Textual Entailment Recognition via Attention__](http://www.aclweb.org/anthology/W17-5310), in Proceedings of the 2nd Workshop on Evaluating Vector Space Representations for NLP (RepEval) collocated with EMNLP, Copenhagen, Denmark, Association for Computational Linguistics (ACL), September 2017. [<a href="assets/papers/refining_raw_sentences.pdf">pdf</a>] [<a href="assets/papers/refining_raw_sentences.bib">bibtex</a>]
 
 E. Marrese-Taylor, __Jorge A. Balazs__, and Y. Matsuo, [__Mining fine-grained opinions on closed captions of YouTube videos with an attention-RNN__](http://www.aclweb.org/anthology/W17-5213) in Proceedings of the 8th Workshop on Computational Approaches to Subjectivity, Sentiment & Social Media Analysis (WASSA) collocated with EMNLP, Copenhagen, Denmark, Association for Computational Linguistics (ACL), September 2017. [<a href="assets/papers/video_om.pdf">pdf</a>] [<a href="assets/papers/video_om.bib">bibtex</a>]
