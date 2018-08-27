@@ -80,9 +80,12 @@ where a command was executed),  and `*` indicates which one is the
 currently-active window. Head to the [next section](#prefix_and_windows) to see
 what happens when you create a new window.
 
-**`status-right`**: The `status-right` shows the `pane_title` and the current
-date in the format: `%H:%M %d-%b-%y` (To know more about date formats take a
-look at the `FORMAT` section of the [manpage for `date`](http://linuxcommand.org/lc3_man_pages/date1.html)).  
+**`status-right`**: The `status-right` shows the
+`pane_title`<sup>[2](#footnote:pane_title)</sup><a
+name="footnote:pane_title.backlink"></a>and the current date in the format:
+`%H:%M %d-%b-%y` (To know more about date formats take a look at the `FORMAT`
+section of the [manpage for
+`date`](http://linuxcommand.org/lc3_man_pages/date1.html)).  
 
 The main point to keep in mind is the `status-line`'s overall structure, and not
 what's being displayed at this point in particular, since you'll probably end up
@@ -171,4 +174,6 @@ That's it for panes! They're just independent terminals embedded in a window.
 mental management of stuff [[back](#footnote:mental_model.backlink)]
 
 
-
+<a name="footnote:pane_title">2</a>: I will deliberately not talk about the
+`pane_title` property since it is poorly documented and, in my opinion, does not
+have much practical use [[back](#footnote:pane_title.backlink)]
