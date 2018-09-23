@@ -177,3 +177,6 @@ mental management of stuff [[back](#footnote:mental_model.backlink)]
 <a name="footnote:pane_title">2</a>: I will deliberately not talk about the
 `pane_title` property since it is poorly documented and, in my opinion, does not
 have much practical use [[back](#footnote:pane_title.backlink)]
+
+# Further reading
+* https://hackernoon.com/a-gentle-introduction-to-tmux-8d784c404340
