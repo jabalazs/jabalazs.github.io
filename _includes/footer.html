@@ -1,39 +1,35 @@
-<footer class="site-footer">
+<footer class="site-footer h-card">
+  <data class="u-url" href="{{ "/" | relative_url }}"></data>
 
   <div class="wrapper">
 
-<div>
-<ul class="social_icons">
+    <!-- <h2 class="footer-heading">{{ site.title | escape }}</h2> -->
 
-    <li class="social">
-        <a target="_blank" href="https://scholar.google.com/citations?user=Iqr7zaQAAAAJ&hl=en&oi=sra" class="btn btn-primary">
-          <i class="fa fa-graduation-cap fa-3x" title="Google Scholar Profile" aria-hidden="true"></i>
-          <span class="sr-only">Google Scholar Profile</span>
-        </a>
-    </li>
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">
+            {%- if site.author -%}
+              {{ site.author | escape }}
+            {%- else -%}
+              {{ site.title | escape }}
+            {%- endif -%}
+            </li>
+            {%- if site.email -%}
+            <li><a class="u-email" href="mailto:{{ site.email }}">{{ site.email }}</a></li>
+            {%- endif -%}
+        </ul>
+      </div>
 
-    <li class="social">
-        <a target="_blank" href="https://www.linkedin.com/in/jorgebalazs/" class="btn btn-primary">
-          <i class="fa fa-linkedin-square fa-3x" title="LinkedIn Profile" aria-hidden="true"></i>
-          <span class="sr-only">LinkedIn Profile</span>
-        </a>
-    </li>
+      <div class="footer-col footer-col-2">
+        {%- include social.html -%}
+      </div>
 
-    <li class="social">
-        <a target="_blank" href="https://github.com/jabalazs" class="btn btn-primary">
-          <i class="fa fa-github-square fa-3x" title="Github Profile" aria-hidden="true"></i>
-          <span class="sr-only">Github Profile</span>
-        </a>
-    </li>
+      <div class="footer-col footer-col-3">
+        <p>{{- site.description | escape -}}</p>
+      </div>
+    </div>
 
-</ul>
-</div>
-
-    <p class="rss-subscribe">Subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
-    <p>Site created with <a href="https://github.com/andrewcodes/daryl">Daryl</a>.</p>
-    <!--<p>Thanks for checking out the <a href="http://daryl.andrewlee.name">Daryl</a> theme.</p>
-    <p>&copy; 2015 by Andrew Lee. All rights reserved.</p>-->
-
-  </div> <!-- .wrapper -->
+  </div>
 
 </footer>
