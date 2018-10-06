@@ -39,13 +39,29 @@ tag along.
 During this tutorial I'll be using tmux version 1.8 which is the one available
 at [Ubuntu Universe](https://help.ubuntu.com/community/Repositories/Ubuntu) for
 Ubuntu 14.04. Most things that I'll cover here apply to newer versions, and I'll
-do my best to specify those that don't. 
+do my best to specify those that don't.
 
 To verify whether you have tmux installed, and check the version you are
 running, execute `tmux -V`. If it's not installed check the
 [installation](#installation) section.
 
+Finally, I'll try to make this post as accessible as possible to newcomers, so
+please don't feel offended if some of the things I write seem _too_ obvious, I'm
+no trying to insult anybody's intelligence :D
+
 # Installing Tmux {#installation}
+
+For those using Ubuntu, execute:
+
+```bash
+sudo apt update && sudo apt install tmux
+```
+
+For those using OS X, install [Homebrew](https://brew.sh/), then run:
+
+```bash
+brew install tmux
+```
 
 # Tmux Structure: Sessions, Windows, and Panes {#structure}
 
@@ -57,7 +73,7 @@ something like this:
 You just initialized a tmux _session_, with an open _window_ containing a single
 _pane_. Now, let me direct you to the green bar that popped up at the bottom of
 the screen. This is called the "status line", and can display all sorts of
-information, but we'll get to that later in the [customization](#customization)
+information, but we'll get to that later in the [Customization](#customization)
 section; for now let me briefly explain its default structure. 
 
 ![Tmux status line explanation]({{ "/assets/images/tmux_status_line_explanation.svg" | absolute_url }})
@@ -96,9 +112,15 @@ what's being displayed at this point in particular, since you'll probably end up
 
 Let's now create another window, but first let me first explain what the
 `prefix` key is. In order to execute commands in tmux, you first need to
-press the prefix key, which by default is `C-b` (Ctrl+b). Let's try this now:
-Press `C-b`, release the keys, then press `c`. You just created another window,
-and should see something similar to the screenshot below.
+press the prefix key, which by default is `C-b` (Ctrl+b).
+
+Let's try this now: Press `C-b`, release the keys, then press `c`. You just
+created another window, and should see something similar to the screenshot
+below.
+
+**Note**: Since some of our readers might have [remapped](#customization) their
+`prefix` key to some other combination, like `C-a` for example, from now on I'll
+write `<prefix>` instead of `C-b`.
 
 ![New tmux window]({{ "/assets/images/new_window.png" | absolute_url }})
 
