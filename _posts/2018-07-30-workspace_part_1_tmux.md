@@ -31,6 +31,9 @@ mental model of] your workspace]<sup>[1](#footnote:mental_model)</sup>.
 <a name="footnote:mental_model.backlink"></a>I know this might not make much
 sense now, but it will become clearer as we go through this tutorial.
 
+[I know some of these commands might look ugly but trust me, when you realize
+that you can easily customize them this won't be an issue.]
+
 Before achieving this though, there are several things that you should know
 first. If you feel comfortable with the tmux basics you can jump straight to the
 [Commands](#commands) or [Customization](#customization) sections. For the rest,
@@ -54,7 +57,7 @@ no trying to insult anybody's intelligence :D
 For those using Ubuntu, execute:
 
 ```bash
-sudo apt update && sudo apt install tmux
+sudo apt-get update && sudo apt-get install tmux
 ```
 
 For those using OS X, install [Homebrew](https://brew.sh/), then run:
@@ -76,17 +79,18 @@ the screen. This is called the "status line", and can display all sorts of
 information, but we'll get to that later in the [Customization](#customization)
 section; for now let me briefly explain its default structure. 
 
-![Tmux status line explanation]({{ "/assets/images/tmux_status_line_explanation.svg" | absolute_url }})
 
 ### Status Line {#status_line}
 
-As you can see in the image above, the status line is composed by 3 main zones:
+![Tmux status line explanation]({{ "/assets/images/tmux_status_line_explanation.svg" | absolute_url }})
+
+As you can see in the image above, the status line is composed of 3 main zones:
 `status-left`, "windows area", and `status-right`. As we'll see in the
 [Customization](#customization) section, you can directly customize
 `status-left` and `status-right`, and change the way the windows' information is
 displayed in the "windows area".
 
-**`status-left`**: The default behavior is for `status-left` to show you only
+**`status-left`**: The default behavior is for `status-left` to display only
 the name of the current session within brackets (`0` by default). 
 
 **windows area**: Right after opening tmux, you will see a single window listed
@@ -98,7 +102,7 @@ what happens when you create a new window.
 
 **`status-right`**: The `status-right` shows the
 `pane_title`<sup>[2](#footnote:pane_title)</sup><a
-name="footnote:pane_title.backlink"></a>and the current date in the format:
+name="footnote:pane_title.backlink"></a> and the current date in the format:
 `%H:%M %d-%b-%y` (To know more about date formats take a look at the `FORMAT`
 section of the [manpage for
 `date`](http://linuxcommand.org/lc3_man_pages/date1.html)).  
@@ -111,8 +115,12 @@ what's being displayed at this point in particular, since you'll probably end up
 ### Prefix key and Windows {#prefix_and_windows}
 
 Let's now create another window, but first let me first explain what the
-`prefix` key is. In order to execute commands in tmux, you first need to
-press the prefix key, which by default is `C-b` (Ctrl+b).
+`prefix` key is. In order to execute commands in tmux, you first need to press
+the prefix key, which by default is `C-b` (Ctrl+b). When you press this
+combination you're telling tmux that you want to execute one of its commands,
+instead of one from whatever other application you're using within your
+terminal.
+<sup>[3](#footnote:prefix_example)</sup><a name="footnote:prefix_example.backlink"></a>
 
 Let's try this now: Press `C-b`, release the keys, then press `c`. You just
 created another window, and should see something similar to the screenshot
@@ -127,6 +135,9 @@ write `<prefix>` instead of `C-b`.
 As you can see in the status bar, you just created window 1, and it became the
 active window (as shown by `*`). This window works independently from the
 first one, so it's just like having another terminal open.
+
+You can also manually rename windows by pressing `C-b ,` (that is `<prefix> <comma>`),
+deleting the current window name, and writing a new one. Try it!
 
 So that's it for windows, pretty simple right? let's now create some panes.
 
@@ -146,6 +157,7 @@ You can easily switch between panes by pressing `C-b left-arrow` or `C-b
 right-arrow`. You can also see that the separator bar looks green at the bottom
 half; this means that the second pane (right) is selected. If you move to the
 first pane, you'll see how the top half becomes green.
+
 
 **Horizontal Panes**
 
@@ -169,11 +181,28 @@ the active pane will still be the one you were at before swapping.
 
 ![Swapping tmux panes]({{ "/assets/images/swapped_pane.png" | absolute_url }})
 
+You can also do more advanced stuff like changing panes from session but we'll
+get to that later.
+
 TALK ABOUT HOW TO SWAP PANES AND BREAK THEM, but do this in a section when we go
 through more advanced commands in the `C-b :` interface
 
-
 That's it for panes! They're just independent terminals embedded in a window.
+
+### Tmux Sessions
+
+I mentioned earlier that after executing `tmux` you were in a window within a
+session. Let's see now how we can interact with sessions and which benefits that
+brings. Imagine you are writing some python code with a layout like this one:
+
+![Some open tmux windows]({{ "assets/images/some_windows_open.png" | absolute_url }})
+
+and you want to inialize a Jupyter notebook. You could, for example, achieve
+this by opening a new window and executing it there. However, if you are
+somewhat like me, you might not want to have those ugly server logs soiling your
+beautiful worspace, but at the same time you might want to keep them somewhere
+close. This is where sessions come in handy.
+
 
 # Tmux Commands {#commands}
 
@@ -193,12 +222,16 @@ That's it for panes! They're just independent terminals embedded in a window.
 <a href="https://twitter.com/intent/tweet?text={{ page.title }}&url={{ site.url }}{{ page.url }}&via={{ site.twitter_username }}&related={{ site.twitter_username }}" rel="nofollow" target="_blank" title="Share on Twitter">Twitter</a>
 
 <a name="footnote:mental_model">1</a>: I really want to mention how easy it makes the
-mental management of stuff [[back](#footnote:mental_model.backlink)]
-
+mental management of stuff. [[back](#footnote:mental_model.backlink)]
 
 <a name="footnote:pane_title">2</a>: I will deliberately not talk about the
 `pane_title` property since it is poorly documented and, in my opinion, does not
-have much practical use [[back](#footnote:pane_title.backlink)]
+have much practical use. [[back](#footnote:pane_title.backlink)]
+
+<a name="footnote:prefix_example">3</a>: For example, I use vim for my daily
+development needs, and as some of you may know, vim has _lots_ of keybindings.
+`prefix` avoids having conflicts between vim's and tmux's
+keybindings. [[back](#footnote:prefix_example.backlink)]
 
 # Further reading
 * https://hackernoon.com/a-gentle-introduction-to-tmux-8d784c404340
