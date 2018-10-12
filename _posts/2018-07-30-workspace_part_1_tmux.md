@@ -66,7 +66,7 @@ For those using OS X, install [Homebrew](https://brew.sh/), then run:
 brew install tmux
 ```
 
-# Tmux Structure: Sessions, Windows, and Panes {#structure}
+# Tmux Structure: Status Line, Sessions, Windows, and Panes {#structure}
 
 Let's begin by talking about tmux's structure. When executing `tmux` you'll see
 something like this:
@@ -74,10 +74,11 @@ something like this:
 ![Bare-bones tmux session]({{ "/assets/images/raw_tmux_session.png" | absolute_url }})
 
 You just initialized a tmux _session_, with an open _window_ containing a single
-_pane_. Now, let me direct you to the green bar that popped up at the bottom of
-the screen. This is called the "status line", and can display all sorts of
-information, but we'll get to that later in the [Customization](#customization)
-section; for now let me briefly explain its default structure. 
+_pane_. I'll explain what all these things are in a jiffy. For now, let me
+direct you to the green bar that popped up at the bottom of the screen. This is
+called the "status line", and can display all sorts of information, but we'll
+get to that later in the [Customization](#customization) section; for now let me
+briefly explain its default structure. 
 
 
 ### Status Line {#status_line}
@@ -85,16 +86,16 @@ section; for now let me briefly explain its default structure.
 ![Tmux status line explanation]({{ "/assets/images/tmux_status_line_explanation.svg" | absolute_url }})
 
 As you can see in the image above, the status line is composed of 3 main zones:
-`status-left`, "windows area", and `status-right`. As we'll see in the
+`status-left`, "windows" area, and `status-right`. As we'll see in the
 [Customization](#customization) section, you can directly customize
 `status-left` and `status-right`, and change the way the windows' information is
-displayed in the "windows area".
+displayed in the windows area.
 
 **`status-left`**: The default behavior is for `status-left` to display only
 the name of the current session within brackets (`0` by default). 
 
 **windows area**: Right after opening tmux, you will see a single window listed
-in the "windows area" indicated by `0:~*`. `0` corresponds to the window id, `~`
+in the windows area indicated by `0:~*`. `0` corresponds to the window id, `~`
 to your home directory (in general, this section will show the last directory
 where a command was executed),  and `*` indicates which one is the
 currently-active window. Head to the [next section](#prefix_and_windows) to see
@@ -126,9 +127,6 @@ Let's try this now: Press `C-b`, release the keys, then press `c`. You just
 created another window, and should see something similar to the screenshot
 below.
 
-**Note**: Since some of our readers might have [remapped](#customization) their
-`prefix` key to some other combination, like `C-a` for example, from now on I'll
-write `<prefix>` instead of `C-b`.
 
 ![New tmux window]({{ "/assets/images/new_window.png" | absolute_url }})
 
@@ -203,6 +201,25 @@ somewhat like me, you might not want to have those ugly server logs soiling your
 beautiful worspace, but at the same time you might want to keep them somewhere
 close. This is where sessions come in handy.
 
+So let's do this: Let's _detach_ from the current session by pressing `C-b d`.
+This will get you back to your tmuxless terminal, but do not fear! the tmux
+server is still running in the background; all your windows are exactly as you
+left them before detaching. We'll get back to them in a while.
+
+Let's now execute `tmux new-session -s 2`. This will create a new session called
+`2`, and drop you into it.
+
+![New tmux session]({{ "assets/images/new_session.png" | absolute_url }})
+
+You can now run a jupyter server with your favorite command within this
+window 
+
+![Jupyter notebook]({{ "assets/images/jupyter.png" | absolute_url }})
+
+and go back to what you where working on on the previous session. To go back to
+it you can press `C-b s` and a list of all your sessions will pop up:
+
+![Session list]({{ "assets/images/session_list.png" | absolute_url }})
 
 # Tmux Commands {#commands}
 
