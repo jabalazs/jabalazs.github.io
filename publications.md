@@ -5,6 +5,8 @@ title: Publications
 
 # Publications
 
+### More information available in my Google Scholar [profile](https://scholar.google.com/citations?user=Iqr7zaQAAAAJ).
+
 __Jorge A. Balazs__, Edison Marrese-Taylor, and Yutaka Matsuo, __IIIDYT at IEST
 2018: Implicit Emotion Classification With Deep Contextualized Word
 Representations__, in Proceedings of the 9th Workshop on Computational
