@@ -5,16 +5,15 @@ date:   2018-07-30 11:02:00
 categories:
 ---
 
-In this post I'll explain the basics about
-tmux, a terminal multiplexer. "A multiwhat?" Even I don't know what that means,
-but that's not important; as soon as you see its potential its name won't matter
-anymore.
+In this post I'll explain the basics about tmux, a terminal multiplexer. "A
+multiwhat?" Even I don't know what that means, but that's not important; as soon
+as you see its potential its name won't matter anymore.
 
 Have you ever had more than one terminal open? in more than one workspace?
 connected to more than one remote server? tmux is here to save the day. Okay,
 enough with the sales pitch.
 
-Tmux is a program that runs  terminal (is this true? what do I mean with
+Tmux is a program that runs terminal (is this true? what do I mean with
 terminal? I know it's a server).
 
 Tmux is a server capable of managing several terminal sessions. Your GUI
@@ -115,7 +114,7 @@ what's being displayed at this point in particular, since you'll probably end up
 
 ### Prefix key and Windows {#prefix_and_windows}
 
-Let's now create another window, but first let me first explain what the
+Let's now create another window, but first let me explain what the
 `prefix` key is. In order to execute commands in tmux, you first need to press
 the prefix key, which by default is `C-b` (Ctrl+b). When you press this
 combination you're telling tmux that you want to execute one of its commands,
@@ -142,8 +141,8 @@ So that's it for windows, pretty simple right? let's now create some panes.
 
 ### Panes {#panes}
 
-A _pane_ is an independent terminal within a window. You can also think of them as
-"splits", but "pane" is the official name.
+A _pane_ is an independent terminal within a window. You can also think of them
+as "splits", but "pane" is the official name.
 
 **Vertical Panes** 
 
@@ -167,9 +166,13 @@ within the currently-selected pane.
 **Pane Indexes**
 
 There are also a few tricks that you can do with panes. For example if you want
-to see their ids you can press `C-b q` and you'll get something like this:
+to see their IDs you can press `C-b q` and you'll get something like this:
 
 ![tmux Pane IDS]({{ "/assets/images/pane_ids.png" | absolute_url }})
+
+Pane IDs will be useful for the more advanced commands (such as changing panes
+from one session to another), which we will cover in the [Tmux
+Commands](#commands) section.
 
 **Swapping Panes**
 
@@ -179,13 +182,11 @@ the active pane will still be the one you were at before swapping.
 
 ![Swapping tmux panes]({{ "/assets/images/swapped_pane.png" | absolute_url }})
 
-You can also do more advanced stuff like changing panes from session but we'll
-get to that later.
-
-TALK ABOUT HOW TO SWAP PANES AND BREAK THEM, but do this in a section when we go
-through more advanced commands in the `C-b :` interface
-
 That's it for panes! They're just independent terminals embedded in a window.
+Along with the `watch` command, they enable you to create GUI-like windows to
+display all sorts of juicy data, like this:
+
+PICTURE OF MY ENVIRONMENT
 
 ### Tmux Sessions
 
@@ -198,7 +199,7 @@ brings. Imagine you are writing some python code with a layout like this one:
 and you want to inialize a Jupyter notebook. You could, for example, achieve
 this by opening a new window and executing it there. However, if you are
 somewhat like me, you might not want to have those ugly server logs soiling your
-beautiful worspace, but at the same time you might want to keep them somewhere
+beautiful workspace, but at the same time you might want to keep them somewhere
 close. This is where sessions come in handy.
 
 So let's do this: Let's _detach_ from the current session by pressing `C-b d`.
@@ -221,9 +222,71 @@ it you can press `C-b s` and a list of all your sessions will pop up:
 
 ![Session list]({{ "assets/images/session_list.png" | absolute_url }})
 
-# Tmux Commands {#commands}
+Here you can see a preview of the windows open within each each session, and
+select one. Select session 0 to go back to what you were working on!
+
+That's it for the basics. For most people this knowledge should be enough to
+boost their productivity and ease the pain of having a gazillion terminal
+clients or tabs open. Let's now dive into how to customize tmux, because hey,
+begin practical doesn't mean it has to be ugly.
 
 # Tmux Customization {#customization}
+
+### Configuration files
+
+By default tmux reads configuration options from two files: A system wide file
+located in `/usr/local/etc/tmux.conf`, and a user-specific file located in
+`~/.tmux.conf`<sup>[4](#footnote:home-dir)</sup><a
+name="footnote:home-dir.backlink"></a>. If an option is specified in both files,
+the one defined in `~/.tmux.conf` will take precedence.
+
+Unless you are a system administrator and want to provide a default
+configuration for the users of the system, you should only modify
+`~/.tmux.conf`<sup>[5](#footnote:dotfiles)</sup><a name="footnote:dotfiles.backlink"></a>.
+
+### Remapping keybindings
+
+Some people, myself included, recommend remapping the `prefix` key from `b` to
+`a`.  This will of course depend on your own preferences and mappings, but in my
+own experience doing this doesn't break anything important, and having the
+prefix key closer to the `Ctrl` key feels more comfortable. If you like living
+on the edge, you could go as far as remapping your `caps lock` key to `Ctrl` so
+`Ctrl` and `a` are right next to each
+other<sup>[6](#footnote:remapping_caps_lock)</sup><a
+name="footnote:remapping_caps_lock.backlink"></a>. Who uses `caps lock` anyway?
+
+
+Enough chatter. To remap your `prefix` key open the `~/.tmux.conf` file, or
+create it if it doesn't exist already, and add the following lines:
+
+```
+set-option -g prefix C-a
+unbind-key C-b
+bind-key C-a send-prefix
+```
+
+<blockquote style="font-size:90%">
+
+This is the official way as it appears in tmux's manpage, however I still don't
+understand why we need both the <code style="font-size:90%">set-option -g prefix
+C-a</code> and <code style="font-size:90%">bind-key C-a send-prefix</code>
+options. I tested using only the first one, and everything
+<strong>seemed</strong> to work, using only the second one did
+<strong>not</strong> work, and using both did work. I advice against using
+only the first option because I don't know whether that would have any
+unforeseen side effects, so let's stick with what the manpage says.
+
+</blockquote>
+
+For the changes to take effect you need to restart the tmux server. To do that,
+save the changes to the file, save all your work and **make sure you're not
+running any vital processes within tmux**, and execute `tmux kill-server` in any
+terminal window.  🚨**WARNING**🚨: this will kill every process running within your
+tmux server, any unsaved changes will be lost. This will also remove any
+sessions, windows and panes you created. We will learn how to define specific
+tmux layouts in section [Tmuxinator: defining session layouts](#tmuxinator), so
+you don't have to create your sessions, windows and panes from scratch each time
+you reboot your computer.
 
 * Remapping the prefix key to `C-a`
 * Making windows 1-indexed instead of 0-indexed
@@ -234,6 +297,13 @@ it you can press `C-b s` and a list of all your sessions will pop up:
 * Customizing `status-left` and `status-right`
 * Some words on fonts(?) to have those nice powerline-like features
 
+# Tmux Commands {#commands}
+
+TALK ABOUT HOW TO SWAP PANES AND BREAK THEM, but do this in a section when we go
+through more advanced commands in the `C-b :` interface
+
+# Tmuxinator: defining session layouts {#tmuxinator}
+
 # Tmux Versions {#versions}
 
 <a href="https://twitter.com/intent/tweet?text={{ page.title }}&url={{ site.url }}{{ page.url }}&via={{ site.twitter_username }}&related={{ site.twitter_username }}" rel="nofollow" target="_blank" title="Share on Twitter">Twitter</a>
@@ -243,12 +313,30 @@ mental management of stuff. [[back](#footnote:mental_model.backlink)]
 
 <a name="footnote:pane_title">2</a>: I will deliberately not talk about the
 `pane_title` property since it is poorly documented and, in my opinion, does not
-have much practical use. [[back](#footnote:pane_title.backlink)]
+have any practical use. [[back](#footnote:pane_title.backlink)]
 
 <a name="footnote:prefix_example">3</a>: For example, I use vim for my daily
 development needs, and as some of you may know, vim has _lots_ of keybindings.
 `prefix` avoids having conflicts between vim's and tmux's
 keybindings. [[back](#footnote:prefix_example.backlink)]
+
+<a name="footnote:home-dir">4</a>: Most Unix systems have something called "glob
+expansion" which transforms specific glyphs into paths. In particular `~` gets
+expanded to `/home/<username>` where `<username>` corresponds to, you guessed,
+your username. [[back](#footnote:home-dir.backlink)]
+
+<a name="footnote:dotfiles">5</a>: Files whose name begin with a dot, such as
+`.tmux.conf` are called _dotfiles_. Dotfiles live in your home directory `~` and
+specify configuration options for almost every terminal-based software. Some
+programs, however, create their own dotdirectories, such as `.jupyter` and
+`.dropbox`, and might store their config files there. You'll have to refer to
+each program's documentation to see how its configuration parameters are
+defined. [[back](#footnote:dotfiles.backlink)]
+
+<a name="footnote:remapping_caps_lock">6</a>: If you're on Ubuntu you can
+achieve this by following this LINK TO TUTORIAL; for those using OSX LINK TO
+ANOTHER TUTORIAL [[back](#footnote:remapping_caps_lock.backlink)]
+
 
 # Further reading
 * https://hackernoon.com/a-gentle-introduction-to-tmux-8d784c404340
