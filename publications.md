@@ -12,8 +12,8 @@ __Jorge A. Balazs__, Edison Marrese-Taylor, and Yutaka Matsuo, __IIIDYT at IEST
 Representations__, in Proceedings of the 9th Workshop on Computational
 Approaches to Subjectivity, Sentiment and Social Media Analysis (WASSA)
 collocated with EMNLP, Brussels, Belgium, Association for Computational
-Linguistics (ACL), November 2018. [[pdf](assets/papers/iest_2018.pdf)]
-[[bibtex](assets/papers/iest_2018.bib)]
+Linguistics (ACL), November 2018. **(Best System Analysis Paper)**
+[[pdf](assets/papers/iest_2018.pdf)] [[bibtex](assets/papers/iest_2018.bib)]
 
 Pablo Loyola, Edison Marrese-Taylor, __Jorge A. Balazs__, Yutaka Matsuo, and
 Fumiko Satoh, __Content Aware Source Code Change Description Generation__, in
