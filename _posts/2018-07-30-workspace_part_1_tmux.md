@@ -237,14 +237,17 @@ begin practical doesn't mean it has to be ugly.
 By default tmux reads configuration options from two files: A system wide file
 located in `/usr/local/etc/tmux.conf`, and a user-specific file located in
 `~/.tmux.conf`<sup>[4](#footnote:home-dir)</sup><a
-name="footnote:home-dir.backlink"></a>. If an option is specified in both files,
-the one defined in `~/.tmux.conf` will take precedence.
+name="footnote:home-dir.backlink"></a><sup>,[5](#footnote:dotfiles)</sup><a name="footnote:dotfiles.backlink"></a>. 
+If an option is specified in both files, the one defined in `~/.tmux.conf` will take precedence
+<sup>[6](#footnote:sysadmin_note)</sup><a name="footnote:sysadmin_note.backlink"></a>.
 
-Unless you are a system administrator and want to provide a default
-configuration for the users of the system, you should only modify
-`~/.tmux.conf`<sup>[5](#footnote:dotfiles)</sup><a name="footnote:dotfiles.backlink"></a>.
+Each line defined in your `.tmux.conf` file will be executed from top to bottom,
+as if executing `tmux <command> <arguments>` from within a terminal, whenever a
+tmux server is initialized.
 
 ### Remapping keybindings
+
+#### Redefining the prefix key
 
 Some people, myself included, recommend remapping the `prefix` key from `b` to
 `a`.  This will of course depend on your own preferences and mappings, but in my
@@ -252,9 +255,8 @@ own experience doing this doesn't break anything important, and having the
 prefix key closer to the `Ctrl` key feels more comfortable. If you like living
 on the edge, you could go as far as remapping your `caps lock` key to `Ctrl` so
 `Ctrl` and `a` are right next to each
-other<sup>[6](#footnote:remapping_caps_lock)</sup><a
+other<sup>[7](#footnote:remapping_caps_lock)</sup><a
 name="footnote:remapping_caps_lock.backlink"></a>. Who uses `caps lock` anyway?
-
 
 Enough chatter. To remap your `prefix` key open the `~/.tmux.conf` file, or
 create it if it doesn't exist already, and add the following lines:
@@ -267,14 +269,14 @@ bind-key C-a send-prefix
 
 <blockquote style="font-size:90%">
 
-This is the official way as it appears in tmux's manpage, however I still don't
+This is the method that appears in tmux's manpage, however I still don't
 understand why we need both the <code style="font-size:90%">set-option -g prefix
 C-a</code> and <code style="font-size:90%">bind-key C-a send-prefix</code>
 options. I tested using only the first one, and everything
 <strong>seemed</strong> to work, using only the second one did
-<strong>not</strong> work, and using both did work. I advice against using
-only the first option because I don't know whether that would have any
-unforeseen side effects, so let's stick with what the manpage says.
+<strong>not</strong> work, and using both did work. I advice against using only
+the first option because I don't know whether that would have any unforeseen
+side effects, so let's stick with what the manpage says.
 
 </blockquote>
 
@@ -287,6 +289,32 @@ sessions, windows and panes you created. We will learn how to define specific
 tmux layouts in section [Tmuxinator: defining session layouts](#tmuxinator), so
 you don't have to create your sessions, windows and panes from scratch each time
 you reboot your computer.
+
+After you execute `tmux` again, the `prefix` combination will be `C-a`; you can
+do all we have learned so far by pressing `C-a` instead of the default `C-b`.
+
+#### Keybinding for quickly reloading the `.tmux.conf` file
+
+Now we want the changes we make to the `.tmux.conf` file to take effect without
+having to restart the tmux server. To achieve this, we can define a keybinding
+for re-executing the commands within our `.tmux.conf` file. To do this add the
+following lines to `~/.tmux.conf`:
+
+```
+bind r source-file ~/.tmux.conf
+```
+
+and restart your tmux server again. Now whenever you press the `C-a r`
+combination, the lines within your configuration file will be
+executed<sup>[8](#footnote:sourcing-note)</sup><a
+name="footnote:sourcing-note.backlink"></a>.
+
+Note that this will only execute the commands within the `~/.tmux.conf` file,
+and will not load any defaults, so, for example, if we previously executed an
+`unbind` command, the key that was unbound will not be restored. To restore an
+unbound key either specifically declare it in the config file, or restart the
+tmux server.
+
 
 * Remapping the prefix key to `C-a`
 * Making windows 1-indexed instead of 0-indexed
@@ -322,8 +350,9 @@ keybindings. [[back](#footnote:prefix_example.backlink)]
 
 <a name="footnote:home-dir">4</a>: Most Unix systems have something called "glob
 expansion" which transforms specific glyphs into paths. In particular `~` gets
-expanded to `/home/<username>` where `<username>` corresponds to, you guessed,
-your username. [[back](#footnote:home-dir.backlink)]
+expanded to `/home/<username>` in Linux systems, and `/Users/<username>` in OSX,
+where `<username>` corresponds to, you guessed, your username.
+[[back](#footnote:home-dir.backlink)]
 
 <a name="footnote:dotfiles">5</a>: Files whose name begin with a dot, such as
 `.tmux.conf` are called _dotfiles_. Dotfiles live in your home directory `~` and
@@ -333,9 +362,19 @@ programs, however, create their own dotdirectories, such as `.jupyter` and
 each program's documentation to see how its configuration parameters are
 defined. [[back](#footnote:dotfiles.backlink)]
 
-<a name="footnote:remapping_caps_lock">6</a>: If you're on Ubuntu you can
+<a name="footnote:sysadmin_note">6</a>: Unless you are a system administrator and want to provide a default
+configuration for the users of the system, you should only modify
+`~/.tmux.conf`. [[back](#footnote:sysadmin_note.backlink)]
+
+<a name="footnote:remapping_caps_lock">7</a>: If you're on Ubuntu you can
 achieve this by following this LINK TO TUTORIAL; for those using OSX LINK TO
 ANOTHER TUTORIAL [[back](#footnote:remapping_caps_lock.backlink)]
+
+<a name="footnote:sourcing-note">8</a>: This procedure is also known as
+_sourcing_ a configuration file, hence the name `source-file` of the tmux
+command. Those of you that have experimented modifying
+the `.profile`, `.bash_profile`, or `.bashrc` files will probably be familiar
+with this term. [[back](#footnote:sourcing-note.backlink)]
 
 
 # Further reading
