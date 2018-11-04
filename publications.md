@@ -5,41 +5,43 @@ title: Publications
 
 # Publications
 
-### More information available in my Google Scholar [profile](https://scholar.google.com/citations?user=Iqr7zaQAAAAJ).
+**More information available in my Google Scholar
+[profile](https://scholar.google.com/citations?user=Iqr7zaQAAAAJ).**
 
-__Jorge A. Balazs__, Edison Marrese-Taylor, and Yutaka Matsuo, __IIIDYT at IEST
+__Jorge A. Balazs__, Edison Marrese-Taylor, and Yutaka Matsuo, [__IIIDYT at IEST
 2018: Implicit Emotion Classification With Deep Contextualized Word
-Representations__, in Proceedings of the 9th Workshop on Computational
-Approaches to Subjectivity, Sentiment and Social Media Analysis (WASSA)
-collocated with EMNLP, Brussels, Belgium, Association for Computational
-Linguistics (ACL), November 2018. **(Best System Analysis Paper)**
+Representations__](https://aclanthology.info/papers/W18-6208/w18-6208), in
+Proceedings of the 9th Workshop on Computational Approaches to Subjectivity,
+Sentiment and Social Media Analysis (WASSA) collocated with EMNLP, Brussels,
+Belgium, Association for Computational Linguistics (ACL), November 2018. **(Best
+System Analysis Paper)** [[code](https://github.com/jabalazs/implicit_emotion)]
 [[pdf](assets/papers/iest_2018.pdf)] [[bibtex](assets/papers/iest_2018.bib)]
+[[slides](https://goo.gl/Gg3Pxk)]
 
 Pablo Loyola, Edison Marrese-Taylor, __Jorge A. Balazs__, Yutaka Matsuo, and
 Fumiko Satoh, __Content Aware Source Code Change Description Generation__, in
 Proceedings of the 11th International Conference on Natural Language Generation
 (INLG), (Tillburg, The Netherlands), Association for Computational Linguistics,
-November 2018. To appear.
+November 2018. Forthcoming.
 
 Suzana Ilic, Edison Marrese-Taylor, __Jorge A. Balazs__, and Yutaka Matsuo,
 [__Deep contextualized word representations for detecting sarcasm and
-irony__](https://arxiv.org/abs/1809.09795), in Proceedings of the 9th Workshop
-on Computational Approaches to Subjectivity, Sentiment and Social Media Analysis
-(WASSA), (Brussels, Belgium), Association for Computational Linguistics (ACL),
-November 2018. To appear.
+irony__](https://aclanthology.info/papers/W18-6202/w18-6202), in Proceedings of
+the 9th Workshop on Computational Approaches to Subjectivity, Sentiment and
+Social Media Analysis (WASSA), (Brussels, Belgium), Association for
+Computational Linguistics (ACL), November 2018.
+[[code](https://github.com/epochx/elmo4irony)] [[pdf](assets/papers/elmo_irony.pdf)] [[bibtex](assets/papers/elmo_irony.bib)]
 
 __Jorge A. Balazs__, Edison Marrese-Taylor, Pablo Loyola, and Yutaka Matsuo,
 [__Refining Raw Sentence Representations for Textual Entailment Recognition via
-Attention__](http://www.aclweb.org/anthology/W17-5310), in Proceedings of the
+Attention__](https://aclanthology.info/papers/W17-5310/w17-5310), in Proceedings of the
 2nd Workshop on Evaluating Vector Space Representations for NLP (RepEval)
 collocated with EMNLP, Copenhagen, Denmark, Association for Computational
-Linguistics (ACL), September 2017. [<a
-href="assets/papers/refining_raw_sentences.pdf">pdf</a>] [<a
-href="assets/papers/refining_raw_sentences.bib">bibtex</a>]
+Linguistics (ACL), September 2017. [[code](https://github.com/jabalazs/repeval_rivercorners)]  [[pdf](assets/papers/refining_raw_sentences.pdf)] [[bibtex](assets/papers/refining_raw_sentences.bib)]
 
 Edison Marrese-Taylor, __Jorge A. Balazs__, and Yutaka Matsuo, [__Mining
 fine-grained opinions on closed captions of YouTube videos with an
-attention-RNN__](http://www.aclweb.org/anthology/W17-5213) in Proceedings of the
+attention-RNN__](https://aclanthology.info/papers/W17-5213/w17-5213) in Proceedings of the
 8th Workshop on Computational Approaches to Subjectivity, Sentiment & Social
 Media Analysis (WASSA) collocated with EMNLP, Copenhagen, Denmark, Association
 for Computational Linguistics (ACL), September 2017. [<a
