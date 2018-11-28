@@ -119,8 +119,7 @@ Let's now create another window, but first let me explain what the
 the prefix key, which by default is `C-b` (Ctrl+b). When you press this
 combination you're telling tmux that you want to execute one of its commands,
 instead of one from whatever other application you're using within your
-terminal.
-<sup>[3](#footnote:prefix_example)</sup><a name="footnote:prefix_example.backlink"></a>
+terminal<sup>[3](#footnote:prefix_example)</sup><a name="footnote:prefix_example.backlink"></a>.
 
 Let's try this now: Press `C-b`, release the keys, then press `c`. You just
 created another window, and should see something similar to the screenshot
@@ -163,8 +162,8 @@ within the currently-selected pane.
 
 ![New horizontal pane]({{ "/assets/images/tmux_blogpost/horizontal_pane.png" | absolute_url }})
 
-I know these default commands might be hard to remember so in section [More
-intuitive keybindings](#intuitive) we'll see how to remap them.
+I know these default commands might be hard to remember but bear with me; in
+section [More intuitive keybindings](#intuitive) we'll see how to remap them.
 
 **Pane Indexes**
 
@@ -267,14 +266,13 @@ to, please let me know and I will update the article!
 
 By default tmux reads configuration options from two files: A system wide file
 located in `/usr/local/etc/tmux.conf`, and a user-specific file located in
-`~/.tmux.conf`<sup>[5](#footnote:home-dir),</sup><a
-name="footnote:home-dir.backlink"></a> (in general, this section will show the last directory
-where a command was executed)<sup>[6](#footnote:dotfiles)</sup><a
+`~/.tmux.conf`<sup>[5](#footnote:home-dir)<a
+name="footnote:home-dir.backlink"></a>,[6](#footnote:dotfiles)</sup><a
 name="footnote:dotfiles.backlink"></a>.  If an option is specified in both
 files, the one defined in `~/.tmux.conf` will take precedence
 <sup>[7](#footnote:sysadmin_note)</sup><a
-name="footnote:sysadmin_note.backlink"></a>. From now on I'll refer to
-`~/.tmux.conf` simply as `.tmux.conf`.
+name="footnote:sysadmin_note.backlink"></a>. From now on I'll only talk about
+`~/.tmux.conf`, and will not touch the system-wide config file.
 
 Whenever a tmux server is initialized, each line defined in your `.tmux.conf`
 file will be executed from top to bottom, as if executing
@@ -309,18 +307,26 @@ bind-key C-a send-prefix
 
 <blockquote style="font-size:90%">
 
-This is the method that appears in tmux's manpage, however I still don't
-understand why we need both the <code style="font-size:90%">set-option -g prefix
-C-a</code> and <code style="font-size:90%">bind-key C-a send-prefix</code>
-options. I tested using only the first one, and everything
-<strong>seemed</strong> to work, using only the second one did
-<strong>not</strong> work, and using both did work. I advice against using only
-the first option because I don't know whether that would have any unforeseen
-side effects, so let's stick with what the manpage says.
+This is the method that appears in tmux's <a
+href="https://www.systutorials.com/docs/linux/man/1-tmux/">manpage</a>, however
+I still don't understand why we need both the <code
+style="font-size:90%">set-option -g prefix C-a</code> and <code
+style="font-size:90%">bind-key C-a send-prefix</code> options. I tested using
+only the first one, and everything <strong>seemed</strong> to work, using only
+the second one did <strong>not</strong> work, and using both did work. I advice
+against using only the first option because I don't know whether that would have
+any unforeseen side effects, so let's stick with what the manpage says.
 
 </blockquote>
 
-For the changes to take effect you need to restart the tmux server. To do that,
+For the changes to take effect you either need to restart the tmux server, or
+execute the following series of commands from anywhere within tmux: first press
+`C-b :` to enter tmux's command prompt. In the prompt type `source-file
+~/.tmux.conf` to reload the configuration file (we'll talk more about tmux's
+command promt in the [Tmux Commands](#commands) section). Now your new prefix
+key is `C-a`.
+
+<!-- For the changes to take effect you need to restart the tmux server. To do that,
 save the changes to the file, save all your work and **make sure you're not
 running any vital processes within tmux**, and execute `tmux kill-server` in any
 terminal window.  🚨**WARNING**🚨: this will kill every process running within your
@@ -332,6 +338,7 @@ you reboot your computer.
 
 After you execute `tmux` again, the `prefix` combination will be `C-a`; you can
 do all we have learned so far by pressing `C-a` instead of the default `C-b`.
+ -->
 
 ### Keybinding for quickly reloading the `.tmux.conf` file
 
@@ -344,8 +351,11 @@ following lines to `.tmux.conf`:
 bind r source-file ~/.tmux.conf
 ```
 
-and restart your tmux server again. Now whenever you press the `C-a r`
-combination, the lines within your configuration file will be
+where `bind` is equivalent to `bind-key` (aka an
+[_alias_](https://en.wikipedia.org/wiki/Alias_(command))). Then, either do the
+`C-a :`, <span style="white-space: nowrap;">`source-file ~/.tmux.conf`</span>
+conjuration again, or restart your tmux server. Now whenever you press the `C-a
+r` combination, the lines within your configuration file will be
 executed<sup>[9](#footnote:sourcing-note)</sup><a
 name="footnote:sourcing-note.backlink"></a>.
 
@@ -384,6 +394,9 @@ bind -n M-Right select-pane -R
 bind -n M-Up select-pane -U
 bind -n M-Down select-pane -D
 ```
+
+Where the flag `-n` tells the `bind` command to make these keybindings not
+require the `prefix`.
 
 
 I also like having vim keybindings for when I'm feeling lazy about moving my
@@ -432,11 +445,8 @@ corresponds to the active pane title, which by default is the name of the host
 tmux is running in. Check Names and Titles section of the tmux
 [manpage](http://man7.org/linux/man-pages/man1/tmux.1.html#NAMES_AND_TITLES),
 and [this](https://stackoverflow.com/a/9757133/3941813) stackoverflow answer to
-learn more.
+learn more. [[back](#footnote:window_title.backlink)]
 
-I will deliberately not talk about the
-`pane_title` property since it is poorly documented and, in my opinion, does not
-have any practical use. [[back](#footnote:window_title.backlink)]
 
 <a name="footnote:prefix_example">3</a>: For example, I use vim for my daily
 development needs, and as some of you may know, vim has _lots_ of keybindings.
@@ -505,3 +515,7 @@ with this term. [[back](#footnote:sourcing-note.backlink)]
 * [https://medium.com/actualize-network/a-minimalist-guide-to-tmux-13675fb160fa](https://medium.com/actualize-network/a-minimalist-guide-to-tmux-13675fb160fa)
 * [https://edricteo.com/tmux-tutorial/](https://edricteo.com/tmux-tutorial/)
 * [https://www.codementor.io/bruno/beginner-s-guide-to-tmux-recommended-configuration-plugins-and-navigation-demo-aih7o7ktw](https://www.codementor.io/bruno/beginner-s-guide-to-tmux-recommended-configuration-plugins-and-navigation-demo-aih7o7ktw)
+* [https://pragprog.com/book/bhtmux2/tmux-2](https://pragprog.com/book/bhtmux2/tmux-2)
+
+# Some dotfiles
+* [https://github.com/gpakosz/.tmux](https://github.com/gpakosz/.tmux)
