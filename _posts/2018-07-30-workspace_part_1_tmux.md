@@ -5,42 +5,19 @@ date:   2018-07-30 11:02:00
 categories:
 ---
 
-In this post I'll explain the basics about tmux, a terminal multiplexer. "A
-multiwhat?" Even I don't know what that means, but that's not important; as soon
-as you see its potential its name won't matter anymore.
-
-Have you ever had more than one terminal open? in more than one workspace?
-connected to more than one remote server? tmux is here to save the day. Okay,
-enough with the sales pitch.
-
-Tmux is a program that runs terminal (is this true? what do I mean with
-terminal? I know it's a server).
-
-Tmux is a server capable of managing several terminal sessions. Your GUI
-terminal connects to this server, and the server manages your stuff.
 
 Tmux lets you have several terminal sessions open within only one GUI terminal
 client, so instead of having this: [show image with lots of GUI terminals open],
 you can have this: [show image with single tmux session open].
 
 This not only lets you quickly navigate through your different terminal
-sessions, but also makes it easier to think about [to make a mental model of],
-the terminals you have open. [but it also makes it easier to think [build a
-mental model of] your workspace]<sup>[1](#footnote:mental_model)</sup>.
-<a name="footnote:mental_model.backlink"></a>I know this might not make much
+sessions, but also makes it easier to think about
+the terminals you have open. I know this might not make much
 sense now, but it will become clearer as we go through this tutorial.
-
-[I know some of these commands might look ugly but trust me, when you realize
-that you can easily customize them this won't be an issue.]
-
-Before achieving this though, there are several things that you should know
-first. If you feel comfortable with the tmux basics you can jump straight to the
-[Commands](#commands) or [Customization](#customization) sections. For the rest,
-tag along.
 
 During this tutorial I'll be using tmux version 2.1 which is the one available
 at [Ubuntu Universe](https://packages.ubuntu.com/search?keywords=tmux) for
-Ubuntu 16.04 (xenial). Most things that I'll cover here apply to newer versions, and I'll
+Ubuntu 16.04 (Xenial). Most things that I'll cover here apply to newer versions, and I'll
 do my best to specify those that don't.
 
 To verify whether you have tmux installed, and check the version you are
@@ -50,6 +27,10 @@ running, execute `tmux -V`. If it's not installed check the
 Finally, I'll try to make this post as accessible as possible to newcomers, so
 please don't feel offended if some of the things I write seem _too_ obvious, I'm
 no trying to insult anybody's intelligence :D
+
+If you feel comfortable with the tmux basics you can jump straight to the
+[Commands](#commands) or [Customization](#customization) sections. For the rest,
+tag along.
 
 # **Installing Tmux** {#installation}
 
@@ -101,7 +82,7 @@ currently-active window. Head to the [next section](#prefix_and_windows) to see
 what happens when you create a new window.
 
 **`status-right`**: The `status-right` shows the `window
-title`<sup>[2](#footnote:window_title)</sup><a
+title`<sup>[1](#footnote:window_title)</sup><a
 name="footnote:window_title.backlink"></a> and the current date in the format:
 `%H:%M %d-%b-%y` (To know more about date formats take a look at the `FORMAT`
 section of the [manpage for
@@ -119,7 +100,7 @@ Let's now create another window, but first let me explain what the
 the prefix key, which by default is `C-b` (Ctrl+b). When you press this
 combination you're telling tmux that you want to execute one of its commands,
 instead of one from whatever other application you're using within your
-terminal<sup>[3](#footnote:prefix_example)</sup><a name="footnote:prefix_example.backlink"></a>.
+terminal<sup>[2](#footnote:prefix_example)</sup><a name="footnote:prefix_example.backlink"></a>.
 
 Let's try this now: Press `C-b`, release the keys, then press `c`. You just
 created another window, and should see something similar to the screenshot
@@ -192,7 +173,7 @@ You can easily resize panes by pressing `C-b C-<arrow-key>` for small
 size increments and `C-b M-<arrow-key>` for bigger size increments.
 
 `M-` stands for "meta", but in most keyboards this corresponds to the `Alt` key
-<sup>[4](#footnote:meta_links)</sup><a name="footnote:meta_links.backlink"></a>.
+<sup>[3](#footnote:meta_links)</sup><a name="footnote:meta_links.backlink"></a>.
 Try it! press `C-b M-<down arrow>` a couple of times to resize the current pane.
 
 ![Resizing tmux panes]({{ "/assets/images/tmux_blogpost/resized_pane.png" | absolute_url }})
@@ -266,11 +247,11 @@ to, please let me know and I will update the article!
 
 By default tmux reads configuration options from two files: A system wide file
 located in `/usr/local/etc/tmux.conf`, and a user-specific file located in
-`~/.tmux.conf`<sup>[5](#footnote:home-dir)<a
-name="footnote:home-dir.backlink"></a>,[6](#footnote:dotfiles)</sup><a
+`~/.tmux.conf`<sup>[4](#footnote:home-dir)<a
+name="footnote:home-dir.backlink"></a>,[5](#footnote:dotfiles)</sup><a
 name="footnote:dotfiles.backlink"></a>.  If an option is specified in both
 files, the one defined in `~/.tmux.conf` will take precedence
-<sup>[7](#footnote:sysadmin_note)</sup><a
+<sup>[6](#footnote:sysadmin_note)</sup><a
 name="footnote:sysadmin_note.backlink"></a>. From now on I'll only talk about
 `~/.tmux.conf`, and will not touch the system-wide config file.
 
@@ -293,7 +274,7 @@ own experience doing this doesn't break anything important, and having the
 prefix key closer to the `Ctrl` key feels more comfortable. If you like living
 on the edge, you could go as far as remapping your `caps lock` key to `Ctrl` so
 `Ctrl` and `a` are right next to each
-other<sup>[8](#footnote:remapping_caps_lock)</sup><a
+other<sup>[7](#footnote:remapping_caps_lock)</sup><a
 name="footnote:remapping_caps_lock.backlink"></a>. Who uses `caps lock` anyway?
 
 To remap your `prefix` key open the `.tmux.conf` file, or create it if it
@@ -356,7 +337,7 @@ where `bind` is equivalent to `bind-key` (aka an
 `C-a :`, <span style="white-space: nowrap;">`source-file ~/.tmux.conf`</span>
 conjuration again, or restart your tmux server. Now whenever you press the `C-a
 r` combination, the lines within your configuration file will be
-executed<sup>[9](#footnote:sourcing-note)</sup><a
+executed<sup>[8](#footnote:sourcing-note)</sup><a
 name="footnote:sourcing-note.backlink"></a>.
 
 Note that this will only execute the commands within the `.tmux.conf` file,
@@ -422,20 +403,14 @@ Note that these commands _will_ require a press of the prefix key.
 
 # **Tmux Commands** {#commands}
 
-TALK ABOUT HOW TO SWAP PANES AND BREAK THEM, but do this in a section when we go
-through more advanced commands in the `C-b :` interface
+TALK ABOUT HOW TO SWAP PANES AND BREAK THEM
 
 # **Tmuxinator: Defining Session Layouts** {#tmuxinator}
 
-# Tmux Versions {#versions}
 
 <a href="https://twitter.com/intent/tweet?text={{ page.title }}&url={{ site.url }}{{ page.url }}&via={{ site.twitter_username }}&related={{ site.twitter_username }}" rel="nofollow" target="_blank" title="Share on Twitter">Twitter</a>
 
-<a name="footnote:mental_model">1</a>: I really want to mention how easy it makes the
-mental management of stuff. [[back](#footnote:mental_model.backlink)]
-
-
-<a name="footnote:window_title">2</a>: According to tmux's
+<a name="footnote:window_title">1</a>: According to tmux's
 [manpage](http://man7.org/linux/man-pages/man1/tmux.1.html#NAMES_AND_TITLES),
 tmux distinguishes between names and titles, which might be confusing unless
 you're developing an application which interacts with the terminal it is running
@@ -448,14 +423,14 @@ and [this](https://stackoverflow.com/a/9757133/3941813) stackoverflow answer to
 learn more. [[back](#footnote:window_title.backlink)]
 
 
-<a name="footnote:prefix_example">3</a>: For example, I use vim for my daily
+<a name="footnote:prefix_example">2</a>: For example, I use vim for my daily
 development needs, and as some of you may know, vim has _lots_ of keybindings.
 `prefix` avoids having conflicts between vim's and tmux's
 keybindings. [[back](#footnote:prefix_example.backlink)]
 
 
 
-<a name="footnote:meta_links">4</a>: If you want to read more on this, check
+<a name="footnote:meta_links">3</a>: If you want to read more on this, check
 [this](https://en.wikipedia.org/wiki/Meta_key) Wikipedia article, some info on
 the space cadet keyboard
 ([here](https://en.wikipedia.org/wiki/Space-cadet_keyboard) and
@@ -463,7 +438,7 @@ the space cadet keyboard
 [this](https://askubuntu.com/a/19565/351183) askubuntu answer.
 [[back](#footnote:meta_links.backlink)]
 
-<a name="footnote:home-dir">5</a>: Most Unix systems have something called
+<a name="footnote:home-dir">4</a>: Most Unix systems have something called
 [_tilde
 expansion_](https://www.gnu.org/software/bash/manual/html_node/Tilde-Expansion.html)
 which transforms `~` into `/home/<username>` in Linux systems, and
@@ -478,7 +453,7 @@ article, and in the glob
 [manpage](http://man7.org/linux/man-pages/man7/glob.7.html).
 [[back](#footnote:home-dir.backlink)]
 
-<a name="footnote:dotfiles">6</a>: Files whose name begin with a dot, such as
+<a name="footnote:dotfiles">5</a>: Files whose name begin with a dot, such as
 `.tmux.conf` are called _dotfiles_. Dotfiles live in your home directory `~` and
 specify configuration options for almost every terminal-based software. Some
 programs, however, create their own dotdirectories, such as `.jupyter` and
@@ -486,15 +461,15 @@ programs, however, create their own dotdirectories, such as `.jupyter` and
 each program's documentation to see how its configuration parameters are
 defined. [[back](#footnote:dotfiles.backlink)]
 
-<a name="footnote:sysadmin_note">7</a>: Unless you are a system administrator and want to provide a default
+<a name="footnote:sysadmin_note">6</a>: Unless you are a system administrator and want to provide a default
 configuration for the users of the system, you should only modify
 `~/.tmux.conf`. [[back](#footnote:sysadmin_note.backlink)]
 
-<a name="footnote:remapping_caps_lock">8</a>: If you're on Ubuntu you can
+<a name="footnote:remapping_caps_lock">7</a>: If you're on Ubuntu you can
 achieve this by following this LINK TO TUTORIAL; for those using OSX LINK TO
 ANOTHER TUTORIAL [[back](#footnote:remapping_caps_lock.backlink)]
 
-<a name="footnote:sourcing-note">9</a>: This procedure is also known as
+<a name="footnote:sourcing-note">8</a>: This procedure is also known as
 _sourcing_ a configuration file, hence the name `source-file` of the tmux
 command. Those of you that have experimented modifying
 the `.profile`, `.bash_profile`, or `.bashrc` files will probably be familiar
@@ -516,6 +491,8 @@ with this term. [[back](#footnote:sourcing-note.backlink)]
 * [https://edricteo.com/tmux-tutorial/](https://edricteo.com/tmux-tutorial/)
 * [https://www.codementor.io/bruno/beginner-s-guide-to-tmux-recommended-configuration-plugins-and-navigation-demo-aih7o7ktw](https://www.codementor.io/bruno/beginner-s-guide-to-tmux-recommended-configuration-plugins-and-navigation-demo-aih7o7ktw)
 * [https://pragprog.com/book/bhtmux2/tmux-2](https://pragprog.com/book/bhtmux2/tmux-2)
+* https://medium.freecodecamp.org/tmux-in-practice-local-and-nested-remote-tmux-sessions-4f7ba5db8795
+* https://leanpub.com/the-tao-of-tmux/read
 
 # Some dotfiles
 * [https://github.com/gpakosz/.tmux](https://github.com/gpakosz/.tmux)
