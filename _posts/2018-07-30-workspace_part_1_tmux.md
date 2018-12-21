@@ -286,7 +286,14 @@ unbind-key C-b
 bind-key C-a send-prefix
 ```
 
-<blockquote style="font-size:90%">
+The third line is used for sending the prefix signal into whatever program is
+running within tmux. This is specially useful when running nested tmux sessions;
+the first press of `C-a` will be sent to the local session, and the second, to
+the nested one. See
+[this](https://unix.stackexchange.com/questions/367557/binding-prefix-key-in-tmux-twice-really-needed)
+stackexchange question and accepted answer.
+
+<!-- <blockquote style="font-size:90%">
 
 This is the method that appears in tmux's <a
 href="https://www.systutorials.com/docs/linux/man/1-tmux/">manpage</a>, however
@@ -299,7 +306,7 @@ against using only the first option because I don't know whether that would have
 any unforeseen side effects, so let's stick with what the manpage says.
 
 </blockquote>
-
+ -->
 For the changes to take effect you either need to restart the tmux server, or
 execute the following series of commands from anywhere within tmux: first press
 `C-b :` to enter tmux's command prompt. In the prompt type `source-file
