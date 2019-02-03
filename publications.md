@@ -19,10 +19,11 @@ System Analysis Paper)** [[code](https://github.com/jabalazs/implicit_emotion)]
 [[slides](https://goo.gl/Gg3Pxk)]
 
 Pablo Loyola, Edison Marrese-Taylor, __Jorge A. Balazs__, Yutaka Matsuo, and
-Fumiko Satoh, __Content Aware Source Code Change Description Generation__, in
+Fumiko Satoh, [__Content Aware Source Code Change Description
+Generation__](https://aclanthology.info/papers/W18-6513/w18-6513), in
 Proceedings of the 11th International Conference on Natural Language Generation
 (INLG), (Tillburg, The Netherlands), Association for Computational Linguistics,
-November 2018. Forthcoming.
+November 2018.
 
 Suzana Ilic, Edison Marrese-Taylor, __Jorge A. Balazs__, and Yutaka Matsuo,
 [__Deep contextualized word representations for detecting sarcasm and
