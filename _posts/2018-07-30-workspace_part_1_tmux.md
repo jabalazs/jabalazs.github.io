@@ -498,8 +498,8 @@ with this term. [[back](#footnote:sourcing-note.backlink)]
 * [https://edricteo.com/tmux-tutorial/](https://edricteo.com/tmux-tutorial/)
 * [https://www.codementor.io/bruno/beginner-s-guide-to-tmux-recommended-configuration-plugins-and-navigation-demo-aih7o7ktw](https://www.codementor.io/bruno/beginner-s-guide-to-tmux-recommended-configuration-plugins-and-navigation-demo-aih7o7ktw)
 * [https://pragprog.com/book/bhtmux2/tmux-2](https://pragprog.com/book/bhtmux2/tmux-2)
-* https://medium.freecodecamp.org/tmux-in-practice-local-and-nested-remote-tmux-sessions-4f7ba5db8795
-* https://leanpub.com/the-tao-of-tmux/read
+* [https://medium.freecodecamp.org/tmux-in-practice-local-and-nested-remote-tmux-sessions-4f7ba5db8795](https://medium.freecodecamp.org/tmux-in-practice-local-and-nested-remote-tmux-sessions-4f7ba5db8795)
+* [https://leanpub.com/the-tao-of-tmux/read](https://leanpub.com/the-tao-of-tmux/read)
 
 # Some dotfiles
 * [https://github.com/gpakosz/.tmux](https://github.com/gpakosz/.tmux)
