@@ -19,8 +19,6 @@ email: jorge@weblab.t.u-tokyo.ac.jp
 description: >- # this means to ignore newlines until "baseurl:"
 
     Ph.D. student.
-    # writing on Natural Language Processing and Software
-    # Engineering.
 
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://jabalazs.github.io/" # the base hostname & protocol for your site
