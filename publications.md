@@ -8,10 +8,14 @@ title: Publications
 **More information available in my Google Scholar
 [profile](https://scholar.google.com/citations?user=Iqr7zaQAAAAJ).**
 
-__Jorge A. Balazs__ and Yutaka Matsuo, Gating Mechanisms for Combining Character
-and Word-level Word Representations: An Empirical Study, in Proceedings of
-NAACL-HLT: Student Research Workshop, Minneapolis, USA, Association for
-Computational Linguistics (ACL), June 2019. Forthcoming.
+__Jorge A. Balazs__ and Yutaka Matsuo, [__Gating Mechanisms for Combining
+Character and Word-level Word Representations: An Empirical
+Study__](https://arxiv.org/abs/1904.05584), in Proceedings of NAACL-HLT: Student
+Research Workshop, Minneapolis, USA, Association for Computational Linguistics
+(ACL), June 2019. Forthcoming.
+[[reviews](https://gist.github.com/jabalazs/27f81104d957ddca942d43a12f20c88e)]
+[[code](https://github.com/jabalazs/gating)]
+[[bibtex](assets/papers/gating.bib)]
 
 __Jorge A. Balazs__, Edison Marrese-Taylor, and Yutaka Matsuo, [__IIIDYT at IEST
 2018: Implicit Emotion Classification With Deep Contextualized Word
@@ -75,6 +79,5 @@ Fusion, vol. 27, pp. 95–110, January 2016.
 
 __Jorge A. Balazs__, [__Design, Development and Implementation of a Web Opinion
 Mining Application for Identifying Twitter Users’ Sentiment Towards a Chilean
-Retail Company__](http://repositorio.uchile.cl/handle/2250/137769), Major
-thesis, 2015.
+Retail Company__](http://repositorio.uchile.cl/handle/2250/137769), Thesis, 2015.
 [[pdf](assets/Thesis-Jorge-Balazs.pdf)]
