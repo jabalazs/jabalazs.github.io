@@ -54,6 +54,7 @@ Linguistics (ACL), September 2017.
 [[reviews](https://github.com/jabalazs/repeval/blob/master/paper/reviews/reviews.md)]
 [[code](https://github.com/jabalazs/repeval_rivercorners)]
 [[pdf](assets/papers/refining_raw_sentences.pdf)]
+[[poster](assets/papers/refining_raw_sentences_poster.pdf)]
 [[bibtex](assets/papers/refining_raw_sentences.bib)]
 
 Edison Marrese-Taylor, __Jorge A. Balazs__, and Yutaka Matsuo, [__Mining
