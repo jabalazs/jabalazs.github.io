@@ -13,6 +13,7 @@ Character and Word-level Word Representations: An Empirical
 Study__](https://arxiv.org/abs/1904.05584), in Proceedings of NAACL-HLT: Student
 Research Workshop, Minneapolis, USA, Association for Computational Linguistics
 (ACL), June 2019. Forthcoming.
+[[poster](assets/papers/gating_poster.pdf)]
 [[reviews](https://gist.github.com/jabalazs/27f81104d957ddca942d43a12f20c88e)]
 [[code](https://github.com/jabalazs/gating)]
 [[bibtex](assets/papers/gating.bib)]
