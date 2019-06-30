@@ -1,0 +1,73 @@
+==================================================================
+https://keybase.io/jabalazs
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://jabalazs.github.io
+  * I am jabalazs (https://keybase.io/jabalazs) on keybase.
+  * I have a public key with fingerprint 37AC B8E4 69D7 0E25 C902  B7E5 D532 D539 C108 C982
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0101bb92d4a8f8cb850f6d94dac84a2052f4cbe0877aac4bcdd9948cbd3d334b054b0a",
+      "fingerprint": "37acb8e469d70e25c902b7e5d532d539c108c982",
+      "host": "keybase.io",
+      "key_id": "d532d539c108c982",
+      "kid": "0101bb92d4a8f8cb850f6d94dac84a2052f4cbe0877aac4bcdd9948cbd3d334b054b0a",
+      "uid": "5b2d076580dff0068d85dc40bb3d9919",
+      "username": "jabalazs"
+    },
+    "service": {
+      "hostname": "jabalazs.github.io",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 1
+  },
+  "ctime": 1561918791,
+  "expire_in": 157680000,
+  "prev": "2776eb4995b63998deb928575ecad5fd4a5cb5149e2334165ebac61699f14c2e",
+  "seqno": 7,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+
+owGtUn1MVWUcPnzkgLyAa7oELDmOORvcnXPu+XqvKThnyIfImoMC6XLec95zOcL9
+4N4LQXyLCY7WSJG0/Co/cEMsEQKLSLbCQEYBI1qB5kICtIhhsACh91L+0/qzd/vt
+3ft7n+d5n9+zt1rnRfh4DDKDoMOn66DH7QlIpD37eE8BCW1KPmksIDPRyoayFOR0
+mTI1hTSSFE3REAJGYSVRFWUocpTKK4BVJFlkJYbiGJWVIaJEQZAkmYWyogDAYqBi
+UAwGFlIcLokMJ1XNakYOu0OzurCsQZCwFmJ5oAgUYjgZUAwUEKdwBgYXkGlKlIHI
+YGKGzelmYHNQciK9ZsM9fDCt2PsP/P/sO2dFjoOMQgk8J1KKqlIULyoip8gsBaEB
+82jgBjqRwypZEEYfkKCUJb3hJIvCSdzN1WTkDtY9yb8QerPmysiBf09ld9hcNtmW
+he8zXC670+jmu/LtbsLrCJr+kTJBzargNDEjFzmcms1KGmmMlF2aW5vmeBrQogDo
+cBLl2TUHMmluBCfwIoWX+x2UiyWZ1wSBR5AFgIO8AQBRQTgwkRM4JEsKp+LoOBly
+NAsQgyOheQ5BSeZpHgCVZmUGke7psq020ihgn5IZazo1s1Vy5TgQWeR3xNPgTXj4
+EBvWhXoLV1pHtSH/sC7PlvtPfuBTnu7vR/j5Bj7ppPYELCePRPT3Dfm/E3OX2F49
+TuwfO1QPM7v0N6LFXiJpVeDxuOkDy6GvVlYsv5cxlD89qwPXvf/YVmapC+2JKf2s
+ba71ysF4pruyY2ZzuWdd8dPThWPvls7OnpksOb0vdcTW5p1tp8Nr1oyz7z/3m04X
+E7Y+PWiuSn700ZvJ1rST1zrr5+v8dv9s8d06SDW1h6xFEcJEa/F40aXYmaATixvr
+T220gJkvHvy6lTi6nNIb1ZC5beDe4NFTV5duRveCnpETh29Ftr+1+fmsyoe5U0QL
+Z79zfiIg7OUXAo4H3dSvSRtutu79fl1Nimi75ij7OGmxdlg9JzlyfC2gqi4m2m+g
+/uLq6fTy0/yeEMPjyNgL4b+Ylnd9WWR2JR6aj5iwlug/yfYf5y5ExW1qEcqF0UdH
+WhpzwWJnSV/VsHT5q/RRtf+71Tn3LOL2Vcm1wa19hp625m9f0QprEg7DqbEdS5eU
++LCRkKir3eYHS4l3vslb2Dc5XHbug4Xg+8HB/cYbtc5YjeisW298+1bArkWdvMHb
+fwdT3NRwNq6RsDzcX5/wZ54c3JAwWTrldSxQ90OI7++6qKrq+N0wwCOeHssvvD5c
+E5pqIX60thYk6buE/IpjAx1t5+/OvLTlxZPP3K7olT4M8tr0aXlik3AxU/1pi1/k
+5aXGz+e6F+ZrIr7e2R54trkoSQRrd6aofwE=
+=q10v
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/jabalazs
+
+==================================================================
+
