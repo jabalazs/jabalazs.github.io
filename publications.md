@@ -12,7 +12,7 @@ __Jorge A. Balazs__ and Yutaka Matsuo, [__Gating Mechanisms for Combining
 Character and Word-level Word Representations: An Empirical
 Study__](https://aclweb.org/anthology/papers/N/N19/N19-3016/), in Proceedings of
 NAACL-HLT: Student Research Workshop, Minneapolis, USA, Association for
-Computational Linguistics (ACL), June 2019. Forthcoming.<br>
+Computational Linguistics (ACL), June 2019.<br>
 [[code](https://github.com/jabalazs/gating)]
 [[pdf](assets/papers/gating.pdf)]
 [[bibtex](https://aclweb.org/anthology/papers/N/N19/N19-3016.bib)]
