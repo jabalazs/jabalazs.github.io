@@ -15,7 +15,7 @@ NAACL-HLT: Student Research Workshop, Minneapolis, USA, Association for
 Computational Linguistics (ACL), June 2019.<br>
 [[code](https://github.com/jabalazs/gating)]
 [[pdf](assets/papers/gating.pdf)]
-[[bibtex](https://aclweb.org/anthology/papers/N/N19/N19-3016.bib)]
+[[bibtex](https://aclweb.org/anthology/N19-3016.bib)]
 [[poster](assets/papers/gating_poster.pdf)]
 [[reviews](https://gist.github.com/jabalazs/27f81104d957ddca942d43a12f20c88e)]
 
@@ -27,7 +27,8 @@ Sentiment and Social Media Analysis (WASSA) collocated with EMNLP, Brussels,
 Belgium, Association for Computational Linguistics (ACL), November 2018. **(Best
 System Analysis Paper)**<br>
 [[code](https://github.com/jabalazs/implicit_emotion)]
-[[pdf](assets/papers/iest_2018.pdf)] [[bibtex](https://aclweb.org/anthology/papers/W/W18/W18-6208.bib)]
+[[pdf](assets/papers/iest_2018.pdf)]
+[[bibtex](https://aclweb.org/anthology/W18-6208.bib)]
 [[slides](https://goo.gl/Gg3Pxk)]
 [[reviews](https://github.com/jabalazs/implicit_emotion/blob/master/paper/reviews/reviews.md)]
 
@@ -36,7 +37,8 @@ Fumiko Satoh, [__Content Aware Source Code Change Description
 Generation__](https://aclweb.org/anthology/W18-6513/), in
 Proceedings of the 11th International Conference on Natural Language Generation
 (INLG), (Tillburg, The Netherlands), Association for Computational Linguistics,
-November 2018.
+November 2018.<br>
+[[bibtex](https://aclweb.org/anthology/W18-6513.bib)]
 
 Suzana Ilic, Edison Marrese-Taylor, __Jorge A. Balazs__, and Yutaka Matsuo,
 [__Deep contextualized word representations for detecting sarcasm and
@@ -45,7 +47,8 @@ the 9th Workshop on Computational Approaches to Subjectivity, Sentiment and
 Social Media Analysis (WASSA), (Brussels, Belgium), Association for
 Computational Linguistics (ACL), November 2018.<br>
 [[code](https://github.com/epochx/elmo4irony)]
-[[pdf](assets/papers/elmo_irony.pdf)] [[bibtex](https://aclweb.org/anthology/papers/W/W18/W18-6202.bib)]
+[[pdf](assets/papers/elmo_irony.pdf)]
+[[bibtex](https://aclweb.org/anthology/W18-6202.bib)]
 
 __Jorge A. Balazs__, Edison Marrese-Taylor, Pablo Loyola, and Yutaka Matsuo,
 [__Refining Raw Sentence Representations for Textual Entailment Recognition via
@@ -55,7 +58,7 @@ collocated with EMNLP, Copenhagen, Denmark, Association for Computational
 Linguistics (ACL), September 2017.<br>
 [[code](https://github.com/jabalazs/repeval_rivercorners)]
 [[pdf](assets/papers/refining_raw_sentences.pdf)]
-[[bibtex](https://aclweb.org/anthology/papers/W/W17/W17-5310.bib)]
+[[bibtex](https://aclweb.org/anthology/W17-5310.bib)]
 [[poster](assets/papers/refining_raw_sentences_poster.pdf)]
 [[reviews](https://github.com/jabalazs/repeval/blob/master/paper/reviews/reviews.md)]
 
@@ -66,7 +69,7 @@ Proceedings of the 8th Workshop on Computational Approaches to Subjectivity,
 Sentiment & Social Media Analysis (WASSA) collocated with EMNLP, Copenhagen,
 Denmark, Association for Computational Linguistics (ACL), September 2017.<br>
 [[pdf](assets/papers/video_om.pdf)]
-[[bibtex](https://aclweb.org/anthology/papers/W/W17/W17-5213.bib)]
+[[bibtex](https://aclweb.org/anthology/W17-5213.bib)]
 
 
 Gino Slanzi, __Jorge A. Balazs__, and Juan Velásquez, [__Combining eye tracking,
