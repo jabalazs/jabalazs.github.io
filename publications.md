@@ -10,7 +10,7 @@ title: Publications
 
 __Jorge A. Balazs__ and Yutaka Matsuo, [__Gating Mechanisms for Combining
 Character and Word-level Word Representations: An Empirical
-Study__](https://aclweb.org/anthology/papers/N/N19/N19-3016/), in Proceedings of
+Study__](https://aclweb.org/anthology/N19-3016/), in Proceedings of
 NAACL-HLT: Student Research Workshop, Minneapolis, USA, Association for
 Computational Linguistics (ACL), June 2019.<br>
 [[code](https://github.com/jabalazs/gating)]
@@ -21,7 +21,7 @@ Computational Linguistics (ACL), June 2019.<br>
 
 __Jorge A. Balazs__, Edison Marrese-Taylor, and Yutaka Matsuo, [__IIIDYT at IEST
 2018: Implicit Emotion Classification With Deep Contextualized Word
-Representations__](https://aclanthology.info/papers/W18-6208/w18-6208), in
+Representations__](https://aclweb.org/anthology/W18-6208/), in
 Proceedings of the 9th Workshop on Computational Approaches to Subjectivity,
 Sentiment and Social Media Analysis (WASSA) collocated with EMNLP, Brussels,
 Belgium, Association for Computational Linguistics (ACL), November 2018. **(Best
@@ -33,14 +33,14 @@ System Analysis Paper)**<br>
 
 Pablo Loyola, Edison Marrese-Taylor, __Jorge A. Balazs__, Yutaka Matsuo, and
 Fumiko Satoh, [__Content Aware Source Code Change Description
-Generation__](https://aclanthology.info/papers/W18-6513/w18-6513), in
+Generation__](https://aclweb.org/anthology/W18-6513/), in
 Proceedings of the 11th International Conference on Natural Language Generation
 (INLG), (Tillburg, The Netherlands), Association for Computational Linguistics,
 November 2018.
 
 Suzana Ilic, Edison Marrese-Taylor, __Jorge A. Balazs__, and Yutaka Matsuo,
 [__Deep contextualized word representations for detecting sarcasm and
-irony__](https://aclanthology.info/papers/W18-6202/w18-6202), in Proceedings of
+irony__](https://aclweb.org/anthology/W18-6202/), in Proceedings of
 the 9th Workshop on Computational Approaches to Subjectivity, Sentiment and
 Social Media Analysis (WASSA), (Brussels, Belgium), Association for
 Computational Linguistics (ACL), November 2018.<br>
@@ -49,7 +49,7 @@ Computational Linguistics (ACL), November 2018.<br>
 
 __Jorge A. Balazs__, Edison Marrese-Taylor, Pablo Loyola, and Yutaka Matsuo,
 [__Refining Raw Sentence Representations for Textual Entailment Recognition via
-Attention__](https://aclanthology.info/papers/W17-5310/w17-5310), in Proceedings
+Attention__](https://aclweb.org/anthology/W17-5310/), in Proceedings
 of the 2nd Workshop on Evaluating Vector Space Representations for NLP (RepEval)
 collocated with EMNLP, Copenhagen, Denmark, Association for Computational
 Linguistics (ACL), September 2017.<br>
@@ -61,7 +61,7 @@ Linguistics (ACL), September 2017.<br>
 
 Edison Marrese-Taylor, __Jorge A. Balazs__, and Yutaka Matsuo, [__Mining
 fine-grained opinions on closed captions of YouTube videos with an
-attention-RNN__](https://aclanthology.info/papers/W17-5213/w17-5213) in
+attention-RNN__](https://aclweb.org/anthology/W17-5213/) in
 Proceedings of the 8th Workshop on Computational Approaches to Subjectivity,
 Sentiment & Social Media Analysis (WASSA) collocated with EMNLP, Copenhagen,
 Denmark, Association for Computational Linguistics (ACL), September 2017.<br>
