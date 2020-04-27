@@ -7,26 +7,28 @@ categories:
 
 
 Tmux lets you have several terminal sessions open within only one GUI terminal
-client, so instead of having this: [show image with lots of GUI terminals open],
-you can have this: [show image with single tmux session open].
+client, so instead of having this: 
+
+![Lots of Terminal Windows
+Open](/assets/images/tmux_blogpost/1-lots-of-iterms-open.png "Lots of Terminal Windows
+Open")
+
+you can have this:
+
+![Single tmux session](/assets/images/tmux_blogpost/2-tmux-preview.png "Single tmux session")
 
 This not only lets you quickly navigate through your different terminal
 sessions, but also makes it easier to think about
 the terminals you have open. I know this might not make much
 sense now, but it will become clearer as we go through this tutorial.
 
-During this tutorial I'll be using tmux version 2.1 which is the one available
-at [Ubuntu Universe](https://packages.ubuntu.com/search?keywords=tmux) for
-Ubuntu 16.04 (Xenial). Most things that I'll cover here apply to newer versions, and I'll
-do my best to specify those that don't.
-
+I'll be using tmux version 3.1 which is the one currently available in Homebrew.
 To verify whether you have tmux installed, and check the version you are
 running, execute `tmux -V`. If it's not installed check the
 [installation](#installation) section.
 
 Finally, I'll try to make this post as accessible as possible to newcomers, so
-please don't feel offended if some of the things I write seem _too_ obvious, I'm
-no trying to insult anybody's intelligence :D
+please don't feel offended if some of the things I write seem _too_ obvious.
 
 If you feel comfortable with the tmux basics you can jump straight to the
 [Commands](#commands) or [Customization](#customization) sections. For the rest,
@@ -185,6 +187,10 @@ display all sorts of juicy data, like this:
 
 PICTURE OF MY ENVIRONMENT
 
+In summary:
+
+![Annotated session](/assets/images/tmux_blogpost/resized_pane_annotated.png "Annotated session")
+
 
 
 ## Tmux Sessions
@@ -218,7 +224,8 @@ window
 ![Jupyter notebook]({{ "/assets/images/tmux_blogpost/jupyter.png" | absolute_url }})
 
 and go back to what you where working on on the previous session. To go back to
-it you can press `C-b s` and a list of all your sessions will pop up:
+it you can press <span style="white-space: nowrap;">`C-b s`</span> and a list of
+all your sessions will pop up:
 
 ![Session list]({{ "/assets/images/tmux_blogpost/session_list.png" | absolute_url }})
 
@@ -233,7 +240,7 @@ session and see the windows open within it:
 That's it for the basics. For most people this knowledge should be enough to
 boost their productivity and ease the pain of having a gazillion terminal
 clients or tabs open. Let's now dive into how to customize tmux, because hey,
-begin practical doesn't mean it has to be ugly.
+being practical doesn't mean it has to be ugly.
 
 # **Tmux Customization** {#customization}
 
@@ -275,7 +282,7 @@ prefix key closer to the `Ctrl` key feels more comfortable. If you like living
 on the edge, you could go as far as remapping your `caps lock` key to `Ctrl` so
 `Ctrl` and `a` are right next to each
 other<sup>[7](#footnote:remapping_caps_lock)</sup><a
-name="footnote:remapping_caps_lock.backlink"></a>. Who uses `caps lock` anyway?
+name="footnote:remapping_caps_lock.backlink"></a>. Who uses `caps lock` anyway? <span style="font-size:50%">It's fine if you do, we all have different preferences :)</span>
 
 To remap your `prefix` key open the `.tmux.conf` file, or create it if it
 doesn't exist already, and add the following lines:
