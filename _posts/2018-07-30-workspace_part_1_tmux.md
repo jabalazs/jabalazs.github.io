@@ -22,9 +22,9 @@ sessions, but also makes it easier to think about
 the terminals you have open. I know this might not make much
 sense now, but it will become clearer as we go through this tutorial.
 
-I'll be using tmux version 3.1 which is the one currently available in Homebrew.
-To verify whether you have tmux installed, and check the version you are
-running, execute `tmux -V`. If it's not installed check the
+I'll be using tmux version 3.1 which is the latest available at the time of
+writing.  To verify whether you have tmux installed, and check the version you
+are running, execute `tmux -V`. If it's not installed check the
 [installation](#installation) section.
 
 Finally, I'll try to make this post as accessible as possible to newcomers, so
@@ -36,24 +36,33 @@ tag along.
 
 # **Installing Tmux** {#installation}
 
-For those using Ubuntu, execute:
+For those using OS X or Linux, install [Homebrew](https://brew.sh/) (same
+instructions for both OS's), then run:
+
+```bash
+brew install tmux
+```
+
+If you are using Ubuntu and want to use the built-in package manager, execute:
 
 ```bash
 sudo apt-get update && sudo apt-get install tmux
 ```
 
-For those using OS X, install [Homebrew](https://brew.sh/), then run:
+However, this will install a version of tmux depending on your release (e.g.
+tmux 3.0 on Ubuntu 20.04 Focal Fossa. Click
+[here](https://packages.ubuntu.com/focal/tmux) for more details.)
 
-```bash
-brew install tmux
-```
+You can also build tmux from source if you feel like it. Follow the instructions
+[here](https://github.com/tmux/tmux#installation).
+
 
 # **Tmux Structure: Status Line, Sessions, Windows, and Panes** {#structure}
 
 Let's begin by talking about tmux's structure. When executing `tmux` you'll see
 something like this:
 
-![Bare-bones tmux session]({{ "/assets/images/tmux_blogpost/raw_tmux_session.png" | absolute_url }})
+![Bare-bones tmux session]({{ "/assets/images/tmux_blogpost/3-landing.png" | absolute_url }})
 
 You just initialized a tmux _session_, with an open _window_ containing a single
 _pane_. I'll explain what all these things are in a jiffy. For now, let me
@@ -65,7 +74,7 @@ briefly explain its default structure.
 
 ## Status Line {#status_line}
 
-![Tmux status line explanation]({{ "/assets/images/tmux_blogpost/tmux_status_line_explanation_2.svg" | absolute_url }})
+![Tmux status line explanation]({{ "/assets/images/tmux_blogpost/tmux_status_line_explanation_3.svg" | absolute_url }})
 
 As you can see in the image above, the status line is composed of 3 main zones:
 `status-left`, "window list", and `status-right`. As we'll see in the
@@ -434,13 +443,13 @@ corresponds to the active pane title, which by default is the name of the host
 tmux is running in. Check Names and Titles section of the tmux
 [manpage](http://man7.org/linux/man-pages/man1/tmux.1.html#NAMES_AND_TITLES),
 and [this](https://stackoverflow.com/a/9757133/3941813) stackoverflow answer to
-learn more. [[back](#footnote:window_title.backlink)]
+learn more. <a href="#footnote:window_title.backlink" style="display: inline;">↩</a>
 
 
 <a name="footnote:prefix_example">2</a>: For example, I use vim for my daily
 development needs, and as some of you may know, vim has _lots_ of keybindings.
 `prefix` avoids having conflicts between vim's and tmux's
-keybindings. [[back](#footnote:prefix_example.backlink)]
+keybindings. [↩](#footnote:prefix_example.backlink)
 
 
 
@@ -450,7 +459,7 @@ the space cadet keyboard
 ([here](https://en.wikipedia.org/wiki/Space-cadet_keyboard) and
 [here](http://www.catb.org/jargon/html/S/space-cadet-keyboard.html)), and
 [this](https://askubuntu.com/a/19565/351183) askubuntu answer.
-[[back](#footnote:meta_links.backlink)]
+[↩](#footnote:meta_links.backlink)
 
 <a name="footnote:home-dir">4</a>: Most Unix systems have something called
 [_tilde
@@ -465,7 +474,7 @@ other symbols to be used in paths and automatically expanded by your
 expansions in [this](https://en.wikipedia.org/wiki/Glob_(programming)) wikipedia
 article, and in the glob
 [manpage](http://man7.org/linux/man-pages/man7/glob.7.html).
-[[back](#footnote:home-dir.backlink)]
+[↩](#footnote:home-dir.backlink)
 
 <a name="footnote:dotfiles">5</a>: Files whose name begin with a dot, such as
 `.tmux.conf` are called _dotfiles_. Dotfiles live in your home directory `~` and
@@ -473,21 +482,21 @@ specify configuration options for almost every terminal-based software. Some
 programs, however, create their own dotdirectories, such as `.jupyter` and
 `.dropbox`, and might store their config files there. You'll have to refer to
 each program's documentation to see how its configuration parameters are
-defined. [[back](#footnote:dotfiles.backlink)]
+defined. [↩](#footnote:dotfiles.backlink)
 
 <a name="footnote:sysadmin_note">6</a>: Unless you are a system administrator and want to provide a default
 configuration for the users of the system, you should only modify
-`~/.tmux.conf`. [[back](#footnote:sysadmin_note.backlink)]
+`~/.tmux.conf`. [↩](#footnote:sysadmin_note.backlink)
 
 <a name="footnote:remapping_caps_lock">7</a>: If you're on Ubuntu you can
 achieve this by following this LINK TO TUTORIAL; for those using OSX LINK TO
-ANOTHER TUTORIAL [[back](#footnote:remapping_caps_lock.backlink)]
+ANOTHER TUTORIAL [↩](#footnote:remapping_caps_lock.backlink)
 
 <a name="footnote:sourcing-note">8</a>: This procedure is also known as
 _sourcing_ a configuration file, hence the name `source-file` of the tmux
 command. Those of you that have experimented modifying
 the `.profile`, `.bash_profile`, or `.bashrc` files will probably be familiar
-with this term. [[back](#footnote:sourcing-note.backlink)]
+with this term. [↩](#footnote:sourcing-note.backlink)
 
 
 # What I left out
