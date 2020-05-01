@@ -7,7 +7,7 @@ categories:
 
 
 Tmux lets you have several terminal sessions open within only one GUI terminal
-client, so instead of having this: 
+client, so instead of having lots of terminal windows open, like this: 
 
 ![Lots of Terminal Windows
 Open](/assets/images/tmux_blogpost/1-lots-of-iterms-open.png "Lots of Terminal Windows
@@ -22,6 +22,17 @@ sessions, but also makes it easier to think about
 the terminals you have open. I know this might not make much
 sense now, but it will become clearer as we go through this tutorial.
 
+<!-- TODO: make a list with advantages of using tmux -->
+<!-- * Lots of terminal opens -->
+<!-- * tidy -->
+<!-- * better think about open terminals -->
+
+<!-- * single ssh connection to a remote server, but several terminals -->
+<!-- * keep stuff running even after connection is killed -->
+
+<!-- Another advantage is that tmux lets you have a single open ssh connection to -->
+<!-- a remote server with as many "terminals" as you want. -->
+
 I'll be using tmux version 3.1 which is the latest available at the time of
 writing.  To verify whether you have tmux installed, and check the version you
 are running, execute `tmux -V`. If it's not installed check the
@@ -34,7 +45,7 @@ If you feel comfortable with the tmux basics you can jump straight to the
 [Commands](#commands) or [Customization](#customization) sections. For the rest,
 tag along.
 
-# **Installing Tmux** {#installation}
+# Installing Tmux {#installation}
 
 For those using OS X or Linux, install [Homebrew](https://brew.sh/) (same
 instructions for both OS's), then run:
@@ -74,7 +85,7 @@ briefly explain its default structure.
 
 ## Status Line {#status_line}
 
-![Tmux status line explanation]({{ "/assets/images/tmux_blogpost/tmux_status_line_explanation_3.svg" | absolute_url }})
+![Tmux status line explanation]({{ "/assets/images/tmux_blogpost/4-tmux_status_line_explanation.svg" | absolute_url }})
 
 As you can see in the image above, the status line is composed of 3 main zones:
 `status-left`, "window list", and `status-right`. As we'll see in the
@@ -111,14 +122,14 @@ Let's now create another window, but first let me explain what the
 the prefix key, which by default is `C-b` (Ctrl+b). When you press this
 combination you're telling tmux that you want to execute one of its commands,
 instead of one from whatever other application you're using within your
-terminal<sup>[2](#footnote:prefix_example)</sup><a name="footnote:prefix_example.backlink"></a>.
+terminal.
 
 Let's try this now: Press `C-b`, release the keys, then press `c`. You just
 created another window, and should see something similar to the screenshot
 below.
 
 
-![New tmux window]({{ "/assets/images/tmux_blogpost/new_window.png" | absolute_url }})
+![New tmux window]({{ "/assets/images/tmux_blogpost/5-new_window.png" | absolute_url }})
 
 As you can see in the status bar, you just created window 1, and it became the
 active window (as shown by `*`). This window works independently from the
@@ -139,7 +150,7 @@ as "splits", but "pane" is the official name.
 
 Press `C-b %` to create a vertical pane; you should get something like this:
 
-![New vertical pane]({{ "/assets/images/tmux_blogpost/vertical_pane.png" | absolute_url }})
+![New vertical pane]({{ "/assets/images/tmux_blogpost/6-vertical_pane.png" | absolute_url }})
 
 You can easily switch between panes by pressing `C-b left-arrow` or `C-b
 right-arrow`. You can also see that the separator bar looks green at the bottom
@@ -152,7 +163,7 @@ first pane, you'll see how the top half becomes green.
 Now, why stop at vertical panes? Press `C-b "` to create a horizontal pane
 within the currently-selected pane.
 
-![New horizontal pane]({{ "/assets/images/tmux_blogpost/horizontal_pane.png" | absolute_url }})
+![New horizontal pane]({{ "/assets/images/tmux_blogpost/7-horizontal_pane.png" | absolute_url }})
 
 I know these default commands might be hard to remember but bear with me; in
 section [More intuitive keybindings](#intuitive) we'll see how to remap them.
@@ -162,7 +173,7 @@ section [More intuitive keybindings](#intuitive) we'll see how to remap them.
 There are also a few tricks that you can do with panes. For example if you want
 to see their IDs you can press `C-b q` and you'll get something like this:
 
-![tmux Pane IDS]({{ "/assets/images/tmux_blogpost/pane_ids.png" | absolute_url }})
+![tmux Pane IDS]({{ "/assets/images/tmux_blogpost/8-pane_ids.png" | absolute_url }})
 
 Pane IDs will be useful for the more advanced commands (such as changing panes
 from one session to another), which we will cover in the [Tmux
@@ -175,7 +186,7 @@ You can also swap panes around by pressing `C-b {` to swap the active pane with
 the previous one, or `C-b }` to swap it with the next one.  After you do this,
 the active pane will still be the one you were at before swapping.
 
-![Swapping tmux panes]({{ "/assets/images/tmux_blogpost/swapped_pane.png" | absolute_url }})
+![Swapping tmux panes]({{ "/assets/images/tmux_blogpost/9-swapped_pane.png" | absolute_url }})
 
 
 **Resizing Panes**
@@ -184,21 +195,21 @@ You can easily resize panes by pressing `C-b C-<arrow-key>` for small
 size increments and `C-b M-<arrow-key>` for bigger size increments.
 
 `M-` stands for "meta", but in most keyboards this corresponds to the `Alt` key
-<sup>[3](#footnote:meta_links)</sup><a name="footnote:meta_links.backlink"></a>.
+<sup>[2](#footnote:meta_links)</sup><a name="footnote:meta_links.backlink"></a>.
 Try it! press `C-b M-<down arrow>` a couple of times to resize the current pane.
 
-![Resizing tmux panes]({{ "/assets/images/tmux_blogpost/resized_pane.png" | absolute_url }})
+![Resizing tmux panes]({{ "/assets/images/tmux_blogpost/10-resized_pane.png" | absolute_url }})
 
 
 That's it for panes! They're just independent terminals embedded in a window.
-Along with the `watch` command, they enable you to create GUI-like windows to
-display all sorts of juicy data, like this:
 
-PICTURE OF MY ENVIRONMENT
+<!-- TODO: Put this in a different subsection at the end -->
 
-In summary:
+<!-- Along with the `watch` command, they enable you to create GUI-like windows to -->
+<!-- display all sorts of juicy data, like this: -->
 
-![Annotated session](/assets/images/tmux_blogpost/resized_pane_annotated.png "Annotated session")
+<!-- PICTURE OF MY ENVIRONMENT -->
+
 
 
 
@@ -208,7 +219,7 @@ I mentioned earlier that after executing `tmux` you were in a window within a
 session. Let's see now how we can interact with sessions and which benefits that
 brings. Imagine you are writing some python code with a layout like this one:
 
-![Some open tmux windows]({{ "/assets/images/tmux_blogpost/some_windows_open.png" | absolute_url }})
+![Some open tmux windows]({{ "/assets/images/tmux_blogpost/12-some_windows_open.png" | absolute_url }})
 
 and you want to inialize a Jupyter notebook server. You could, for example, achieve
 this by opening a new window and executing it there. However, if you are
@@ -221,22 +232,21 @@ This will get you back to your tmuxless terminal, but do not fear! the tmux
 server is still running in the background; all your windows are exactly as you
 left them before detaching. We'll get back to them in a while.
 
-Let's now execute [`tmux new-session -s
-new`](https://explainshell.com/explain?cmd=tmux+new-session+-s+new). This will
-create a new session called `new`, and drop you into it.
+Let's now execute `tmux new-session -s new`. This will create a new session
+called `new`, and drop you into it.
 
-![New tmux session]({{ "/assets/images/tmux_blogpost/new_session.png" | absolute_url }})
+![New tmux session]({{ "/assets/images/tmux_blogpost/13-new_session.png" | absolute_url }})
 
 You can now run a jupyter server with your favorite command within this
 window 
 
-![Jupyter notebook]({{ "/assets/images/tmux_blogpost/jupyter.png" | absolute_url }})
+![Jupyter notebook]({{ "/assets/images/tmux_blogpost/14-jupyter.png" | absolute_url }})
 
 and go back to what you where working on on the previous session. To go back to
 it you can press <span style="white-space: nowrap;">`C-b s`</span> and a list of
 all your sessions will pop up:
 
-![Session list]({{ "/assets/images/tmux_blogpost/session_list.png" | absolute_url }})
+![Session list]({{ "/assets/images/tmux_blogpost/15-session_list.png" | absolute_url }})
 
 Here you can see a complete list of the sessions within the tmux server. Select
 session 0 to go back to what you were working on!
@@ -244,30 +254,38 @@ session 0 to go back to what you were working on!
 When navigating the list you can also press the `<right arrow>` key to expand a
 session and see the windows open within it:
 
-![Expanded session list]({{ "/assets/images/tmux_blogpost/expanded_session_list.png" | absolute_url }})
+![Expanded session list]({{ "/assets/images/tmux_blogpost/16-expanded_session_list.png" | absolute_url }})
 
 That's it for the basics. For most people this knowledge should be enough to
 boost their productivity and ease the pain of having a gazillion terminal
-clients or tabs open. Let's now dive into how to customize tmux, because hey,
-being practical doesn't mean it has to be ugly.
+clients or tabs open. 
+
+In summary:
+
+![Annotated session]({{ "/assets/images/tmux_blogpost/11-resized_pane_annotated.svg" | absolute_url }})
+
+Let's now dive into how to customize tmux, because hey, being practical doesn't
+mean it has to be ugly.
+
 
 # **Tmux Customization** {#customization}
 
-**Disclaimer**: Most, if not all, of the ideas in this section were _not_ my
-ideas. I've gathered them along my workspace-crafting journey. Whenever I find
-the source, I will link to it. If you find the source of something I didn't link
-to, please let me know and I will update the article!
+**Disclaimer**: I borrowed most of the ideas in this section from all over the
+internet. By now I don't remember what came from where but I am listing most of
+the resources I have used in the [Further Reading](#further-reading) section. If
+you find the source of something I didn't link to, please let me know and I will
+update the article!
 
 
 ## Configuration files
 
 By default tmux reads configuration options from two files: A system wide file
 located in `/usr/local/etc/tmux.conf`, and a user-specific file located in
-`~/.tmux.conf`<sup>[4](#footnote:home-dir)<a
-name="footnote:home-dir.backlink"></a>,[5](#footnote:dotfiles)</sup><a
+`~/.tmux.conf`<sup>[3](#footnote:home-dir)<a
+name="footnote:home-dir.backlink"></a>,[4](#footnote:dotfiles)</sup><a
 name="footnote:dotfiles.backlink"></a>.  If an option is specified in both
 files, the one defined in `~/.tmux.conf` will take precedence
-<sup>[6](#footnote:sysadmin_note)</sup><a
+<sup>[5](#footnote:sysadmin_note)</sup><a
 name="footnote:sysadmin_note.backlink"></a>. From now on I'll only talk about
 `~/.tmux.conf`, and will not touch the system-wide config file.
 
@@ -290,8 +308,8 @@ own experience doing this doesn't break anything important, and having the
 prefix key closer to the `Ctrl` key feels more comfortable. If you like living
 on the edge, you could go as far as remapping your `caps lock` key to `Ctrl` so
 `Ctrl` and `a` are right next to each
-other<sup>[7](#footnote:remapping_caps_lock)</sup><a
-name="footnote:remapping_caps_lock.backlink"></a>. Who uses `caps lock` anyway? <span style="font-size:50%">It's fine if you do, we all have different preferences :)</span>
+other<sup>[6](#footnote:remapping_caps_lock)</sup><a
+name="footnote:remapping_caps_lock.backlink"></a>. Who uses `caps lock` anyway? <span style="font-size:50%">It's fine if you do, whatever floats your boat :)</span>
 
 To remap your `prefix` key open the `.tmux.conf` file, or create it if it
 doesn't exist already, and add the following lines:
@@ -302,27 +320,14 @@ unbind-key C-b
 bind-key C-a send-prefix
 ```
 
-The third line is used for sending the prefix signal into whatever program is
-running within tmux. This is specially useful when running nested tmux sessions;
-the first press of `C-a` will be sent to the local session, and the second, to
-the nested one. See
+The first line will set Ctrl-a as the new prefix combination and the second will
+unset the default Ctrl-b. The third line is used for sending the prefix signal
+into whatever program is running within tmux. This is specially useful when
+running nested tmux sessions; the first press of `C-a` will be sent to the local
+session, and the second, to the nested one. See
 [this](https://unix.stackexchange.com/questions/367557/binding-prefix-key-in-tmux-twice-really-needed)
 stackexchange question and accepted answer.
 
-<!-- <blockquote style="font-size:90%">
-
-This is the method that appears in tmux's <a
-href="https://www.systutorials.com/docs/linux/man/1-tmux/">manpage</a>, however
-I still don't understand why we need both the <code
-style="font-size:90%">set-option -g prefix C-a</code> and <code
-style="font-size:90%">bind-key C-a send-prefix</code> options. I tested using
-only the first one, and everything <strong>seemed</strong> to work, using only
-the second one did <strong>not</strong> work, and using both did work. I advice
-against using only the first option because I don't know whether that would have
-any unforeseen side effects, so let's stick with what the manpage says.
-
-</blockquote>
- -->
 For the changes to take effect you either need to restart the tmux server, or
 execute the following series of commands from anywhere within tmux: first press
 `C-b :` to enter tmux's command prompt. In the prompt type `source-file
@@ -330,26 +335,12 @@ execute the following series of commands from anywhere within tmux: first press
 command promt in the [Tmux Commands](#commands) section). Now your new prefix
 key is `C-a`.
 
-<!-- For the changes to take effect you need to restart the tmux server. To do that,
-save the changes to the file, save all your work and **make sure you're not
-running any vital processes within tmux**, and execute `tmux kill-server` in any
-terminal window.  🚨**WARNING**🚨: this will kill every process running within your
-tmux server, any unsaved changes will be lost. This will also remove any
-sessions, windows and panes you created. We will learn how to define specific
-tmux layouts in section [Tmuxinator: Defining Session Layouts](#tmuxinator), so
-you don't have to create your sessions, windows and panes from scratch each time
-you reboot your computer.
-
-After you execute `tmux` again, the `prefix` combination will be `C-a`; you can
-do all we have learned so far by pressing `C-a` instead of the default `C-b`.
- -->
-
 ### Keybinding for quickly reloading the `.tmux.conf` file
 
 Now we want the changes we make to the `.tmux.conf` file to take effect without
-having to restart the tmux server. To achieve this, we can define a keybinding
-for re-executing the commands within our `.tmux.conf` file. To do this add the
-following lines to `.tmux.conf`:
+having to restart the tmux server or explicitly write the `source-file` command.
+To achieve this, we can define a keybinding for re-executing the commands within
+our `.tmux.conf` file. To do this add the following lines to `.tmux.conf`:
 
 ```
 bind r source-file ~/.tmux.conf
@@ -360,7 +351,7 @@ where `bind` is equivalent to `bind-key` (aka an
 `C-a :`, <span style="white-space: nowrap;">`source-file ~/.tmux.conf`</span>
 conjuration again, or restart your tmux server. Now whenever you press the `C-a
 r` combination, the lines within your configuration file will be
-executed<sup>[8](#footnote:sourcing-note)</sup><a
+executed<sup>[7](#footnote:sourcing-note)</sup><a
 name="footnote:sourcing-note.backlink"></a>.
 
 Note that this will only execute the commands within the `.tmux.conf` file,
@@ -368,6 +359,21 @@ and will not load any defaults, so, for example, if we previously executed an
 `unbind` command, the key that was unbound will not be restored. To restore an
 unbound key either specifically declare it in the config file, or restart the
 tmux server.
+
+Optionally we can make tmux output a message to let us know that we sourced the
+configuration file by modifying the previous instruction:
+
+```
+bind r source-file ~/.tmux.conf \; display ".tmux.conf reloaded"
+```
+
+This will bind the <span style="white-space: nowrap;">`source-file ~/.tmux.conf
+; display ".tmux.conf reloaded"`</span> _command sequence_, to the `C-a r`
+combination. Note that we have to escape the semicolon (`\;`) to prevent tmux
+from interpeting this line as two separate instructions when starting up. If you
+don't escape it, tmux will try to execute `display ".tmux.conf reloaded"` before
+the display area is created, resulting in an error. 
+
 
 ### More intuitive pane keybindings {#intuitive}
 
@@ -403,8 +409,8 @@ Where the flag `-n` tells the `bind` command to make these keybindings not
 require the `prefix`.
 
 
-I also like having vim keybindings for when I'm feeling lazy about moving my
-hands away from the [home row](https://www.computerhope.com/jargon/h/hrk.htm):
+It is also nice to have vim keybindings for changing panes without having to
+move away from the home row:
 
 ```
 bind h select-pane -L
@@ -415,13 +421,41 @@ bind j select-pane -D
 
 Note that these commands _will_ require a press of the prefix key.
 
+### Enabling mouse support
+
+If you want to use your mouse to interact with tmux, for changing windows or
+resizing panes, for example, you can easily enable mouse support by adding the
+following line to your `.tmux.conf`:
+
+```
+set -g mouse on
+```
+
+### Making windows and panes 1-indexed
+
+I find it rather unintuitive that windows start from 0 instead of 1. I like my
+windows to be arranged in a way that matches my keyboard layout. If you think
+like this as well, add the following line to your config file:
+
+```
+set -g base-index 1
+```
+
+You can achieve the same effect on pane numbering with the command:
+
+```
+set -g pane-base-index 1
+```
+
+## Aesthetic Improvements
+
+Ok! Now using tmux should feel a little more comfortable. Now let's make it look
+better.
 
 
-* Enabling mouse support
-
-* Making windows 1-indexed instead of 0-indexed
 * Aesthetic changes
 * Customizing `status-left` and `status-right`
+* Prefix Indicator
 * Some words on fonts(?) to have those nice powerline-like features
 
 # **Tmux Commands** {#commands}
@@ -446,14 +480,7 @@ and [this](https://stackoverflow.com/a/9757133/3941813) stackoverflow answer to
 learn more. <a href="#footnote:window_title.backlink" style="display: inline;">↩</a>
 
 
-<a name="footnote:prefix_example">2</a>: For example, I use vim for my daily
-development needs, and as some of you may know, vim has _lots_ of keybindings.
-`prefix` avoids having conflicts between vim's and tmux's
-keybindings. [↩](#footnote:prefix_example.backlink)
-
-
-
-<a name="footnote:meta_links">3</a>: If you want to read more on this, check
+<a name="footnote:meta_links">2</a>: If you want to read more on this, check
 [this](https://en.wikipedia.org/wiki/Meta_key) Wikipedia article, some info on
 the space cadet keyboard
 ([here](https://en.wikipedia.org/wiki/Space-cadet_keyboard) and
@@ -461,7 +488,7 @@ the space cadet keyboard
 [this](https://askubuntu.com/a/19565/351183) askubuntu answer.
 [↩](#footnote:meta_links.backlink)
 
-<a name="footnote:home-dir">4</a>: Most Unix systems have something called
+<a name="footnote:home-dir">3</a>: Most Unix systems have something called
 [_tilde
 expansion_](https://www.gnu.org/software/bash/manual/html_node/Tilde-Expansion.html)
 which transforms `~` into `/home/<username>` in Linux systems, and
@@ -476,7 +503,7 @@ article, and in the glob
 [manpage](http://man7.org/linux/man-pages/man7/glob.7.html).
 [↩](#footnote:home-dir.backlink)
 
-<a name="footnote:dotfiles">5</a>: Files whose name begin with a dot, such as
+<a name="footnote:dotfiles">4</a>: Files whose name begin with a dot, such as
 `.tmux.conf` are called _dotfiles_. Dotfiles live in your home directory `~` and
 specify configuration options for almost every terminal-based software. Some
 programs, however, create their own dotdirectories, such as `.jupyter` and
@@ -484,15 +511,15 @@ programs, however, create their own dotdirectories, such as `.jupyter` and
 each program's documentation to see how its configuration parameters are
 defined. [↩](#footnote:dotfiles.backlink)
 
-<a name="footnote:sysadmin_note">6</a>: Unless you are a system administrator and want to provide a default
+<a name="footnote:sysadmin_note">5</a>: Unless you are a system administrator and want to provide a default
 configuration for the users of the system, you should only modify
 `~/.tmux.conf`. [↩](#footnote:sysadmin_note.backlink)
 
-<a name="footnote:remapping_caps_lock">7</a>: If you're on Ubuntu you can
+<a name="footnote:remapping_caps_lock">6</a>: If you're on Ubuntu you can
 achieve this by following this LINK TO TUTORIAL; for those using OSX LINK TO
 ANOTHER TUTORIAL [↩](#footnote:remapping_caps_lock.backlink)
 
-<a name="footnote:sourcing-note">8</a>: This procedure is also known as
+<a name="footnote:sourcing-note">7</a>: This procedure is also known as
 _sourcing_ a configuration file, hence the name `source-file` of the tmux
 command. Those of you that have experimented modifying
 the `.profile`, `.bash_profile`, or `.bashrc` files will probably be familiar
@@ -506,7 +533,7 @@ with this term. [↩](#footnote:sourcing-note.backlink)
   [repo](https://github.com/tmux-plugins/tpm) (short for tmux plugin manager),
   and the [tmux-plugins](https://github.com/tmux-plugins) github organization.
 
-# Further reading
+# Further reading {#further-reading}
 * [https://hackernoon.com/a-gentle-introduction-to-tmux-8d784c404340](https://hackernoon.com/a-gentle-introduction-to-tmux-8d784c404340)
 * [https://www.hamvocke.com/blog/a-quick-and-easy-guide-to-tmux/](https://www.hamvocke.com/blog/a-quick-and-easy-guide-to-tmux/)
 * [https://danielmiessler.com/study/tmux/](https://danielmiessler.com/study/tmux/)
