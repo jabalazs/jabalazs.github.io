@@ -33,7 +33,7 @@ sense now, but it will become clearer as we go through this tutorial.
 <!-- Another advantage is that tmux lets you have a single open ssh connection to -->
 <!-- a remote server with as many "terminals" as you want. -->
 
-I'll be using tmux version 3.1 which is the latest available at the time of
+I'll be using tmux version 3.1a which is the latest available at the time of
 writing.  To verify whether you have tmux installed, and check the version you
 are running, execute `tmux -V`. If it's not installed check the
 [installation](#installation) section.
@@ -47,8 +47,8 @@ tag along.
 
 # Installing Tmux {#installation}
 
-For those using OS X or Linux, install [Homebrew](https://brew.sh/) (same
-instructions for both OS's), then run:
+For those using OS X or Linux, the easiest way to get it is to first install
+[Homebrew](https://brew.sh/) (same instructions for both OS's), then run:
 
 ```bash
 brew install tmux
@@ -264,9 +264,6 @@ In summary:
 
 ![Annotated session]({{ "/assets/images/tmux_blogpost/11-resized_pane_annotated.svg" | absolute_url }})
 
-Let's now dive into how to customize tmux, because hey, being practical doesn't
-mean it has to be ugly.
-
 
 # **Tmux Customization** {#customization}
 
@@ -279,15 +276,22 @@ update the article!
 
 ## Configuration files
 
-By default tmux reads configuration options from two files: A system wide file
-located in `/usr/local/etc/tmux.conf`, and a user-specific file located in
+If you are in Ubuntu, you will most likely have a file located in
+`/usr/local/etc/tmux.conf` containing the default system-wide configuration for
+tmux; in Mac systems there is no such file. To change tmux's default
+configuration we have to create a user-specific file located in
 `~/.tmux.conf`<sup>[3](#footnote:home-dir)<a
 name="footnote:home-dir.backlink"></a>,[4](#footnote:dotfiles)</sup><a
-name="footnote:dotfiles.backlink"></a>.  If an option is specified in both
-files, the one defined in `~/.tmux.conf` will take precedence
+name="footnote:dotfiles.backlink"></a>. If an option is specified in both files,
+the one defined in `~/.tmux.conf` will take precedence
 <sup>[5](#footnote:sysadmin_note)</sup><a
-name="footnote:sysadmin_note.backlink"></a>. From now on I'll only talk about
-`~/.tmux.conf`, and will not touch the system-wide config file.
+name="footnote:sysadmin_note.backlink"></a>.
+
+<!-- In Mac systems, there is no -->
+<!-- default, system-wide config file, but everything else applies. -->
+
+From now on I'll only talk about `~/.tmux.conf`, and will not touch the
+system-wide config file.
 
 Whenever a tmux server is initialized, each line defined in your `.tmux.conf`
 file will be executed from top to bottom, as if executing
@@ -447,12 +451,16 @@ You can achieve the same effect on pane numbering with the command:
 set -g pane-base-index 1
 ```
 
-## Aesthetic Improvements
+## Aesthetic Improvements {#aesthetics}
 
-Ok! Now using tmux should feel a little more comfortable. Now let's make it look
-better.
+Ok! Now using tmux should feel a little more comfortable. Let's make it look
+better now.
 
 
+
+
+
+* Navigation
 * Aesthetic changes
 * Customizing `status-left` and `status-right`
 * Prefix Indicator
@@ -515,9 +523,11 @@ defined. [↩](#footnote:dotfiles.backlink)
 configuration for the users of the system, you should only modify
 `~/.tmux.conf`. [↩](#footnote:sysadmin_note.backlink)
 
-<a name="footnote:remapping_caps_lock">6</a>: If you're on Ubuntu you can
-achieve this by following this LINK TO TUTORIAL; for those using OSX LINK TO
-ANOTHER TUTORIAL [↩](#footnote:remapping_caps_lock.backlink)
+<a name="footnote:remapping_caps_lock">6</a>: OSX users can check
+[this](https://stackoverflow.com/a/162907/3941813) tutorial. The procedure will
+differ for Ubuntu and other Linux distributions.
+[Here](https://askubuntu.com/a/1059723)'s how to do it in Ubuntu 18.04.
+[↩](#footnote:remapping_caps_lock.backlink)
 
 <a name="footnote:sourcing-note">7</a>: This procedure is also known as
 _sourcing_ a configuration file, hence the name `source-file` of the tmux
